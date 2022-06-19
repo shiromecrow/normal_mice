@@ -18,12 +18,18 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "dma.h"
+#include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
+#include "PL_timer.h"
+#include "PL_lcd.h"
+#include "PL_sensor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,7 +79,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  setbuf(stdout, NULL);
+ // setbuf(stdout, NULL);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -86,8 +92,34 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_TIM6_Init();
+  MX_I2C1_Init();
+  MX_DMA_Init();
+  MX_ADC1_Init();
+  MX_TIM15_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim1);//speaker
+  HAL_TIM_PWM_MspInit(&htim1);//speaker
+  HAL_TIM_Base_Start_IT(&htim2);//speaker
+  HAL_TIM_PWM_MspInit(&htim2);//speaker
+  HAL_TIM_Base_Start_IT(&htim15);//speaker
+  HAL_TIM_PWM_MspInit(&htim15);//speaker
+  pl_timer_init();
+  lcd_init();
+  lcd_puts("Hello");
+  lcd_pos(1, 0);
+  lcd_puts("   STM32");
+  HAL_Delay(500);
+  lcd_clear();
+  lcd_pos(0, 0);
+  lcd_puts("Mice");
+  lcd_pos(1, 0);
+  lcd_puts("aaa");
+  HAL_Delay(100);
+  uint16_t cnt = 0;
+  sensor_mode=1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,10 +133,10 @@ int main(void)
 //	  HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin,GPIO_PIN_RESET);
 //	  HAL_Delay(1000);
 // test LED2
-	  HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_RESET);
-	  HAL_Delay(500);
+//	  HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
+//	  HAL_Delay(500);
+//	  HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_RESET);
+//	  HAL_Delay(500);
 // test SWITCH_1,2
 //	 if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 //		 HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
@@ -119,12 +151,61 @@ int main(void)
 //	 HAL_UART_Transmit(&huart2, hello, sizeof(hello), 1000);
 // test USART2
 //	  setbuf(stdout, NULL);
-     uint8_t hello[] = "Hello World\n\r";
-     printf("hello=%s", hello);
-     uint8_t hoge = 3;
-     float PI=3.14;
-     printf("hoge=%d\n", hoge);
-     printf("M_PI=%f\n", PI); // @suppress("Float formatting support")
+//     uint8_t hello[] = "Hello World\n\r";
+//     printf("hello=%s", hello);
+//     uint8_t hoge = 3;
+//     float PI=3.14;
+//     printf("hoge=%d\n", hoge);
+//     printf("M_PI=%f\n", PI); // @suppress("Float formatting support")
+// test timer
+//     HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
+//     wait_ms(500);
+//     HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_RESET);
+//     wait_ms(500);
+// test speaker
+//   if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
+//    	HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
+//     	HAL_Delay(1000);
+//		HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_2);
+//		while(HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==1){
+//		}
+//		HAL_Delay(100);
+//	 	HAL_TIM_PWM_Stop(&htim15, TIM_CHANNEL_2);
+//   }
+// test LCD
+//	 char strBuffer[17] = {0};
+//	 sprintf(strBuffer, "CNT=%04d", cnt);
+//	 cnt++;
+//	 lcd_pos(1, 0);
+//	 lcd_puts(strBuffer);
+// sensor test
+//     HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,sizeof(g_ADCBuffer) / sizeof(uint16_t));
+//     int Batt1,Batt2;
+//     Batt1=(int)g_V_batt;
+//	 Batt2=(int)((g_V_batt-(float)Batt1)*100);
+//	 printf("BATT=%d.%d\n",Batt1,Batt2);
+	 printf("BATT=%f\n",g_V_batt);
+     printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor_on[0],g_sensor_on[1],g_sensor_on[2],g_sensor_on[3]);
+     wait_ms(1000);
+// motor test
+//    	HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
+//     	HAL_Delay(1000);
+//		HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_SET);
+//		HAL_GPIO_WritePin(MOTOR_CLOCK_L_GPIO_Port,MOTOR_CLOCK_L_Pin,GPIO_PIN_SET);
+//		HAL_GPIO_WritePin(MOTOR_CLOCK_R_GPIO_Port,MOTOR_CLOCK_R_Pin,GPIO_PIN_SET);
+//		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_SET);
+//		HAL_Delay(3);
+//		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_RESET);
+//		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+//		HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+//		HAL_Delay(10000);
+//	 	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+//	 	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);
+//	 	HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_RESET);
+//	 	HAL_Delay(1000);
+
+
+
 
     /* USER CODE END WHILE */
 
