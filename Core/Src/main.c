@@ -206,6 +206,9 @@ int main(void)
 //	 	HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_RESET);
 //	 	HAL_Delay(1000);
 
+// test_speaker_music
+//     pl_test_speaker();
+
 
 
 

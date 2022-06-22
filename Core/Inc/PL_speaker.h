@@ -11,7 +11,32 @@
 
 #include "stm32l4xx_hal.h"
 
+typedef struct {
+	float interval;
+	uint16_t waittime;
+} soundData;
+
+
+#define seriaNUM 170
+#define Zelda_nazoNUM 8
+
+
+extern soundData seria[seriaNUM];
+extern soundData Zelda_nazo[Zelda_nazoNUM];
+
+void pl_test_speaker();
+
 void pl_speaker_init();
+
+uint16_t calFrequencyCount(float);
+
+void pl_stop_Sound();
+
+void pl_play_oneSound(char);
+
+void inputZelda_nazo();
+void inputseria();
+
 
 
 #endif /* INC_PL_SPEAKER_H_ */
