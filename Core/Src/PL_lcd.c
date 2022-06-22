@@ -32,14 +32,14 @@ void lcd_data(uint8_t x)
   }
 }
 
-void lcd_puts(const char *s)
+void pl_lcd_puts(const char *s)
 {
   while(*s) lcd_data(*s++);
 }
 
 // param:
 //  contrast: 0 ~ 63 (最初は大きくして調整)
-void lcd_init(void)
+void pl_lcd_init(void)
 {
   // LCD initialize(裏面に記載)
   lcd_cmd(0x38); // function set
@@ -55,15 +55,15 @@ void lcd_init(void)
   HAL_Delay(2);
 }
 
-void lcd_move(uint8_t pos){
+void pl_lcd_move(uint8_t pos){
   lcd_cmd(0x80 | pos);
 }
 
-void lcd_pos(uint8_t raw, uint8_t col) {
+void pl_lcd_pos(uint8_t raw, uint8_t col) {
   lcd_cmd(0x80 | ((raw & 0x01) << 6) | col);
 }
 
-void lcd_clear() {
+void pl_lcd_clear() {
   lcd_cmd(0x01);
 }
 

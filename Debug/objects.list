@@ -1,5 +1,6 @@
 "./Core/Src/PL_lcd.o"
 "./Core/Src/PL_sensor.o"
+"./Core/Src/PL_speaker.o"
 "./Core/Src/PL_timer.o"
 "./Core/Src/adc.o"
 "./Core/Src/dma.o"

@@ -27,6 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdio.h"
 #include "PL_timer.h"
 #include "PL_lcd.h"
 #include "PL_sensor.h"
@@ -100,24 +101,25 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim1);//speaker
-  HAL_TIM_PWM_MspInit(&htim1);//speaker
-  HAL_TIM_Base_Start_IT(&htim2);//speaker
-  HAL_TIM_PWM_MspInit(&htim2);//speaker
-  HAL_TIM_Base_Start_IT(&htim15);//speaker
-  HAL_TIM_PWM_MspInit(&htim15);//speaker
+  HAL_TIM_Base_Start_IT(&htim1);//motor
+  HAL_TIM_PWM_MspInit(&htim1);//motor
+  HAL_TIM_Base_Start_IT(&htim2);//motor
+  HAL_TIM_PWM_MspInit(&htim2);//motor
+  pl_speaker_init();
   pl_timer_init();
-  lcd_init();
-  lcd_puts("Hello");
-  lcd_pos(1, 0);
-  lcd_puts("   STM32");
+  pl_lcd_init();
+
+  pl_lcd_puts("Hello");
+  pl_lcd_pos(1, 0);
+  pl_lcd_puts("   STM32");
   HAL_Delay(500);
-  lcd_clear();
-  lcd_pos(0, 0);
-  lcd_puts("Mice");
-  lcd_pos(1, 0);
-  lcd_puts("aaa");
+  pl_lcd_clear();
+  pl_lcd_pos(0, 0);
+  pl_lcd_puts("Mice");
+  pl_lcd_pos(1, 0);
+  pl_lcd_puts("aaa");
   HAL_Delay(100);
+
   uint16_t cnt = 0;
   sensor_mode=1;
   /* USER CODE END 2 */
