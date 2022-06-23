@@ -1,0 +1,9 @@
+../Core/Src/PL_motor.c:18:6:pl_test_motor	16	static
+../Core/Src/PL_motor.c:43:6:pl_motor_init	8	static
+../Core/Src/PL_motor.c:58:6:pl_motor_standby	16	static
+../Core/Src/PL_motor.c:67:6:pl_L_motor_mode	16	static
+../Core/Src/PL_motor.c:71:6:pl_R_motor_mode	16	static
+../Core/Src/PL_motor.c:75:6:pl_motor_start	8	static
+../Core/Src/PL_motor.c:80:6:pl_motor_stop	8	static
+../Core/Src/PL_motor.c:85:6:pl_motor_count	24	static
+../Core/Src/PL_motor.c:104:10:calMotorVelocityCount	24	static

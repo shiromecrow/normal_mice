@@ -38,7 +38,7 @@ float pl_getbatt(void){
 	HAL_ADC_PollForConversion(&hadc1, 50);
 	battAD = HAL_ADC_GetValue(&hadc1);
 	HAL_ADC_Stop(&hadc1);
-	batt = 3.3  * (float) battAD / 4095.0 * (100.0 + 50.0) / 50.0;
+	batt = 3.3  * (float) battAD / 1023.0 * (100.0 + 22.0) / 22.0;
 
 
 return batt;
@@ -83,7 +83,7 @@ void pl_callback_getSensor(void) {
 			break;
 	}
 	V_battAD = g_ADCBuffer[0];
-		g_V_batt = 3.3 * (float) V_battAD / 1023 * (100.0 + 47.0) / 47.0;
+		g_V_batt = 3.3 * (float) V_battAD / 1023 * (100.0 + 22.0) / 22.0;
 		AD_step++;
 
 		if (AD_step != 3) {

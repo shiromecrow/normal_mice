@@ -11,5 +11,11 @@
 
 #define SPEAKER_LOUDNESS 0.003
 
+#define TIRE_DIAMETER 52
+
+#define L_MOTOR_FRONT 1
+#define L_MOTOR_BACK 0
+#define R_MOTOR_FRONT 1
+#define R_MOTOR_BACK 0
 
 #endif /* INC_DEFINE_H_ */

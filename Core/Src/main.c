@@ -31,6 +31,8 @@
 #include "PL_timer.h"
 #include "PL_lcd.h"
 #include "PL_sensor.h"
+#include "PL_speaker.h"
+#include "PL_motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,10 +103,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim1);//motor
-  HAL_TIM_PWM_MspInit(&htim1);//motor
-  HAL_TIM_Base_Start_IT(&htim2);//motor
-  HAL_TIM_PWM_MspInit(&htim2);//motor
+  pl_motor_init();
   pl_speaker_init();
   pl_timer_init();
   pl_lcd_init();
@@ -182,14 +181,11 @@ int main(void)
 //	 lcd_puts(strBuffer);
 // sensor test
 //     HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,sizeof(g_ADCBuffer) / sizeof(uint16_t));
-//     int Batt1,Batt2;
-//     Batt1=(int)g_V_batt;
-//	 Batt2=(int)((g_V_batt-(float)Batt1)*100);
-//	 printf("BATT=%d.%d\n",Batt1,Batt2);
 	 printf("BATT=%f\n",g_V_batt);
      printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor_on[0],g_sensor_on[1],g_sensor_on[2],g_sensor_on[3]);
      wait_ms(1000);
 // motor test
+//	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 //    	HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
 //     	HAL_Delay(1000);
 //		HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_SET);
@@ -205,9 +201,11 @@ int main(void)
 //	 	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);
 //	 	HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_RESET);
 //	 	HAL_Delay(1000);
-
+//	  }
 // test_speaker_music
 //     pl_test_speaker();
+// test_motor
+//     pl_test_motor();
 
 
 
