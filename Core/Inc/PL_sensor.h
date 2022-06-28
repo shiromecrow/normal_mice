@@ -13,6 +13,7 @@
 extern uint16_t g_ADCBuffer[5];
 extern char sensor_mode;
 
+
 extern uint16_t g_sensor_on[4];
 extern uint16_t g_sensor_off[4];
 

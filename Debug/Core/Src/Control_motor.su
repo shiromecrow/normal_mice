@@ -1,0 +1,7 @@
+../Core/Src/Control_motor.c:27:6:control_test_motor	16	static
+../Core/Src/Control_motor.c:54:6:motor_init	4	static
+../Core/Src/Control_motor.c:65:6:interrupt_Motor	32	static
+../Core/Src/Control_motor.c:95:6:cal_table	32	static
+../Core/Src/Control_motor.c:236:7:straight_table	40	static
+../Core/Src/Control_motor.c:281:7:turning_table	40	static
+../Core/Src/Control_motor.c:325:7:slalom_table	40	static

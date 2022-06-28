@@ -58,7 +58,7 @@ void pl_callback_getSensor(void) {
 		case 0:
 			HAL_GPIO_WritePin(SENSORLED_1_GPIO_Port, SENSORLED_1_Pin, GPIO_PIN_SET);
 		    HAL_GPIO_WritePin(SENSORLED_2_GPIO_Port, SENSORLED_2_Pin,GPIO_PIN_RESET);
-					for (j = 0; j <= 500; j++) {
+					for (j = 0; j <= 100; j++) {
 					}
 			break;
 		case 1:
@@ -68,7 +68,7 @@ void pl_callback_getSensor(void) {
 			g_sensor_off[3] = g_ADCBuffer[4];
 			HAL_GPIO_WritePin(SENSORLED_1_GPIO_Port, SENSORLED_1_Pin, GPIO_PIN_RESET);
 		    HAL_GPIO_WritePin(SENSORLED_2_GPIO_Port, SENSORLED_2_Pin,GPIO_PIN_SET);
-					for (j = 0; j <= 500; j++) {
+					for (j = 0; j <= 100; j++) {
 					}
 			break;
 		case 2:
@@ -83,7 +83,7 @@ void pl_callback_getSensor(void) {
 			break;
 	}
 	V_battAD = g_ADCBuffer[0];
-		g_V_batt = 3.3 * (float) V_battAD / 1023 * (100.0 + 22.0) / 22.0;
+		g_V_batt = 3.3 * (float) V_battAD / 1023.0 * (100.0 + 22.0) / 22.0;
 		AD_step++;
 
 		if (AD_step != 3) {
@@ -91,6 +91,7 @@ void pl_callback_getSensor(void) {
 					sizeof(g_ADCBuffer) / sizeof(uint16_t));
 
 		} else {
+
 			AD_step = 0;
 
 		}

@@ -1,4 +1,5 @@
-Core/Src/PL_motor.o: ../Core/Src/PL_motor.c ../Core/Inc/PL_motor.h \
+Core/Src/Control_sensor.o: ../Core/Src/Control_sensor.c \
+ ../Core/Inc/Control_sensor.h ../Core/Inc/PL_sensor.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -32,9 +33,10 @@ Core/Src/PL_motor.o: ../Core/Src/PL_motor.c ../Core/Inc/PL_motor.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/gpio.h ../Core/Inc/main.h ../Core/Inc/tim.h \
+ ../Core/Inc/PL_lcd.h ../Core/Inc/adc.h ../Core/Inc/main.h \
  ../Core/Inc/define.h
-../Core/Inc/PL_motor.h:
+../Core/Inc/Control_sensor.h:
+../Core/Inc/PL_sensor.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
@@ -68,7 +70,7 @@ Core/Src/PL_motor.o: ../Core/Src/PL_motor.c ../Core/Inc/PL_motor.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-../Core/Inc/gpio.h:
+../Core/Inc/PL_lcd.h:
+../Core/Inc/adc.h:
 ../Core/Inc/main.h:
-../Core/Inc/tim.h:
 ../Core/Inc/define.h:

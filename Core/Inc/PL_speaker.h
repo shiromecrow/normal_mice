@@ -34,6 +34,8 @@ void pl_stop_Sound();
 
 void pl_play_oneSound(char);
 
+void pl_play_Music(uint16_t, soundData *);
+
 void inputZelda_nazo();
 void inputseria();
 

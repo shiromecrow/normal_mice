@@ -28,11 +28,14 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "define.h"
 #include "PL_timer.h"
 #include "PL_lcd.h"
 #include "PL_sensor.h"
 #include "PL_speaker.h"
 #include "PL_motor.h"
+#include "Control_motor.h"
+#include "Control_sensor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,6 +110,7 @@ int main(void)
   pl_speaker_init();
   pl_timer_init();
   pl_lcd_init();
+  motor_init();
 
   pl_lcd_puts("Hello");
   pl_lcd_pos(1, 0);
@@ -118,6 +122,15 @@ int main(void)
   pl_lcd_pos(1, 0);
   pl_lcd_puts("aaa");
   HAL_Delay(100);
+
+  if(pl_getbatt() < LIPO_LIMIT){
+	  pl_lcd_clear();
+	  pl_lcd_pos(0, 0);
+	  pl_lcd_puts("LIPO");
+	  pl_lcd_pos(1, 0);
+	  pl_lcd_puts("error");
+	  HAL_Delay(1000);
+  }
 
   uint16_t cnt = 0;
   sensor_mode=1;
@@ -181,32 +194,47 @@ int main(void)
 //	 lcd_puts(strBuffer);
 // sensor test
 //     HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,sizeof(g_ADCBuffer) / sizeof(uint16_t));
-	 printf("BATT=%f\n",g_V_batt);
-     printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor_on[0],g_sensor_on[1],g_sensor_on[2],g_sensor_on[3]);
-     wait_ms(1000);
+//	 printf("BATT=%f\n",g_V_batt);
+     printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor[0][0],g_sensor[1][0],g_sensor[2][0],g_sensor[3][0]);
+     wait_ms(500);
 // motor test
 //	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 //    	HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
 //     	HAL_Delay(1000);
 //		HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_SET);
-//		HAL_GPIO_WritePin(MOTOR_CLOCK_L_GPIO_Port,MOTOR_CLOCK_L_Pin,GPIO_PIN_SET);
-//		HAL_GPIO_WritePin(MOTOR_CLOCK_R_GPIO_Port,MOTOR_CLOCK_R_Pin,GPIO_PIN_SET);
+//		g_TargetStraight.velocity=100;
 //		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_SET);
 //		HAL_Delay(3);
 //		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_RESET);
 //		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 //		HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-//		HAL_Delay(10000);
+//		HAL_Delay(5000);
+//	 	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+//	 	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);
+//	 	HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_RESET);
+//	 	HAL_Delay(1000);
+//		HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_SET);
+//		g_TargetStraight.velocity=-100;
+//		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_SET);
+//		HAL_Delay(3);
+//		HAL_GPIO_WritePin(MD_RESET_GPIO_Port,MD_RESET_Pin,GPIO_PIN_RESET);
+//		HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+//		HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+//		HAL_Delay(5000);
 //	 	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
 //	 	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);
 //	 	HAL_GPIO_WritePin(MOTOR_ENABLE_GPIO_Port,MOTOR_ENABLE_Pin,GPIO_PIN_RESET);
 //	 	HAL_Delay(1000);
 //	  }
+
+	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 // test_speaker_music
-//     pl_test_speaker();
+    //pl_test_speaker();
 // test_motor
 //     pl_test_motor();
 
+      control_test_motor();
+	  }
 
 
 

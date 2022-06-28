@@ -1,0 +1,3 @@
+../Core/Src/Control_sensor.c:26:6:battcheak	16	static
+../Core/Src/Control_sensor.c:49:6:interrupt_calSensor	16	static
+../Core/Src/Control_sensor.c:80:6:sensor_line	360	static

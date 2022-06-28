@@ -5,6 +5,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/Control_motor.c \
+../Core/Src/Control_sensor.c \
 ../Core/Src/PL_lcd.c \
 ../Core/Src/PL_motor.c \
 ../Core/Src/PL_sensor.c \
@@ -24,6 +26,8 @@ C_SRCS += \
 ../Core/Src/usart.c 
 
 OBJS += \
+./Core/Src/Control_motor.o \
+./Core/Src/Control_sensor.o \
 ./Core/Src/PL_lcd.o \
 ./Core/Src/PL_motor.o \
 ./Core/Src/PL_sensor.o \
@@ -43,6 +47,8 @@ OBJS += \
 ./Core/Src/usart.o 
 
 C_DEPS += \
+./Core/Src/Control_motor.d \
+./Core/Src/Control_sensor.d \
 ./Core/Src/PL_lcd.d \
 ./Core/Src/PL_motor.d \
 ./Core/Src/PL_sensor.d \
@@ -69,7 +75,7 @@ Core/Src/%.o Core/Src/%.su: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/PL_lcd.d ./Core/Src/PL_lcd.o ./Core/Src/PL_lcd.su ./Core/Src/PL_motor.d ./Core/Src/PL_motor.o ./Core/Src/PL_motor.su ./Core/Src/PL_sensor.d ./Core/Src/PL_sensor.o ./Core/Src/PL_sensor.su ./Core/Src/PL_speaker.d ./Core/Src/PL_speaker.o ./Core/Src/PL_speaker.su ./Core/Src/PL_timer.d ./Core/Src/PL_timer.o ./Core/Src/PL_timer.su ./Core/Src/adc.d ./Core/Src/adc.o ./Core/Src/adc.su ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/i2c.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su ./Core/Src/tim.d ./Core/Src/tim.o ./Core/Src/tim.su ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usart.su
+	-$(RM) ./Core/Src/Control_motor.d ./Core/Src/Control_motor.o ./Core/Src/Control_motor.su ./Core/Src/Control_sensor.d ./Core/Src/Control_sensor.o ./Core/Src/Control_sensor.su ./Core/Src/PL_lcd.d ./Core/Src/PL_lcd.o ./Core/Src/PL_lcd.su ./Core/Src/PL_motor.d ./Core/Src/PL_motor.o ./Core/Src/PL_motor.su ./Core/Src/PL_sensor.d ./Core/Src/PL_sensor.o ./Core/Src/PL_sensor.su ./Core/Src/PL_speaker.d ./Core/Src/PL_speaker.o ./Core/Src/PL_speaker.su ./Core/Src/PL_timer.d ./Core/Src/PL_timer.o ./Core/Src/PL_timer.su ./Core/Src/adc.d ./Core/Src/adc.o ./Core/Src/adc.su ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/i2c.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32l4xx_hal_msp.d ./Core/Src/stm32l4xx_hal_msp.o ./Core/Src/stm32l4xx_hal_msp.su ./Core/Src/stm32l4xx_it.d ./Core/Src/stm32l4xx_it.o ./Core/Src/stm32l4xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32l4xx.d ./Core/Src/system_stm32l4xx.o ./Core/Src/system_stm32l4xx.su ./Core/Src/tim.d ./Core/Src/tim.o ./Core/Src/tim.su ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usart.su
 
 .PHONY: clean-Core-2f-Src
 

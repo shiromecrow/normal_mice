@@ -57,7 +57,7 @@ uint16_t calFrequencyCount(float tarHz) {
 	if (tarHz == 0) {
 		tarCount = 0;
 	} else {
-		tarCount = (uint16_t) (5000000.0 / tarHz - 1.0);
+		tarCount = (uint16_t) (1000000.0 / tarHz - 1.0);
 	}
 	return tarCount;
 }
@@ -116,7 +116,7 @@ void pl_play_Music(uint16_t dataMaxNum, soundData *playData) {
 		__HAL_TIM_SET_AUTORELOAD(&htim15, cycleCount);
 
 		__HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_2,cycleCount_f);
-		 																										__HAL_TIM_SET_COUNTER(&htim2, 0);
+		__HAL_TIM_SET_COUNTER(&htim2, 0);
 		HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_2);
 		HAL_Delay(playData[i].waittime);
 	}
