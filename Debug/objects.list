@@ -1,5 +1,6 @@
 "./Core/Src/Control_motor.o"
 "./Core/Src/Control_sensor.o"
+"./Core/Src/PID_wall.o"
 "./Core/Src/PL_lcd.o"
 "./Core/Src/PL_motor.o"
 "./Core/Src/PL_sensor.o"

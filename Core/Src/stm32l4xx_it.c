@@ -259,6 +259,8 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
   pl_timer_count();
   pl_interupt_getSensor();
+  interrupt_calSensor();
+
   interrupt_Motor();
 
   /* USER CODE END TIM6_DAC_IRQn 1 */

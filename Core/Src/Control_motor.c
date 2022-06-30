@@ -8,11 +8,10 @@
 
 #include "Control_motor.h"
 #include "PL_motor.h"
-#include "tim.h"
 #include "define.h"
 #include "stdio.h"
-
 #include "math.h"
+#include "PID_wall.h"
 
 
 TARGET g_TargetStraight;
@@ -64,7 +63,9 @@ void motor_init(void)
 
 void interrupt_Motor(void){
 
+
 	if (modeacc == 0) {
+		//g_WallControl_mode=0;
 		//g_acc_flag=0;
 	}
 	if (modeacc == 1) {
@@ -75,16 +76,18 @@ void interrupt_Motor(void){
 		cal_table(g_TrapezoidStraight,&g_TargetStraight);
 	}
 	if (modeacc == 2){
+		g_WallControl_mode=0;
 		g_TargetStraight.displacement += g_TargetStraight.velocity*INTERRUPT_TIME;// + g_TargetStraight.acceleration*INTERRUPT_TIME*INTERRUPT_TIME/2;
 		g_TargetStraight.velocity += g_TargetStraight.acceleration*INTERRUPT_TIME;
 		g_TargetTurning.displacement += g_TargetTurning.velocity*INTERRUPT_TIME;// + g_TargetTurning.acceleration*INTERRUPT_TIME*INTERRUPT_TIME/2;
 		g_TargetTurning.velocity += g_TargetTurning.acceleration*INTERRUPT_TIME;
 		cal_table(g_TrapezoidTurning,&g_TargetTurning);
 	}
-	float velocity_l = g_TargetStraight.velocity + g_TargetTurning.velocity * TREAD_WIDTH / 2 * M_PI / 180;
+	float PID_wall = calWallConrol();
+	float velocity_l = g_TargetStraight.velocity + g_TargetTurning.velocity * TREAD_WIDTH / 2 * M_PI / 180 + PID_wall;
 		pl_motor_mode_L(velocity_l);
 		pl_motor_count_L(velocity_l);
-	float velocity_r = g_TargetStraight.velocity - g_TargetTurning.velocity * TREAD_WIDTH / 2 * M_PI / 180;
+	float velocity_r = g_TargetStraight.velocity - g_TargetTurning.velocity * TREAD_WIDTH / 2 * M_PI / 180 - PID_wall;
 	    pl_motor_mode_R(velocity_r);
 	    pl_motor_count_R(velocity_r);
 

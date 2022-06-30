@@ -9,14 +9,13 @@
 #include "Control_sensor.h"
 #include "PL_sensor.h"
 #include "PL_lcd.h"
-#include "adc.h"
 #include "define.h"
 #include "stdio.h"
 #include "math.h"
 
-int g_sensor[5][20];
-int g_sensor_diff[5];
-int g_sensor_mean[5];
+int g_sensor[4][20];
+int g_sensor_diff[4];
+int g_sensor_mean[4];
 
 /*******************************************************************/
 /*	バッテリーの確認				(battcheak)	*/

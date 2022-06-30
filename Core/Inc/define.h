@@ -23,10 +23,26 @@
 #define R_MOTOR_FRONT 1
 #define R_MOTOR_BACK 0
 
+//　センサー名
+#define SENSOR_FRONT_LEFT 0
+#define SENSOR_FRONT_RIGHT 3
+#define SENSOR_LEFT 1
+#define SENSOR_RIGHT 2
+
 //　指での最高センサー値
 #define SENSOR_FINGER_0 400
 #define SENSOR_FINGER_1 400
 #define SENSOR_FINGER_2 400
 #define SENSOR_FINGER_3 400
+
+// 壁制御に使用する値
+#define SENSOR_GAIN 0.5
+#define CENTER_L 120
+#define CENTER_R 120
+#define CONTROLWALL_THRESHOLD_L 80//左壁制御の閾値
+#define CONTROLWALL_THRESHOLD_R 80//右壁制御の閾値
+#define CONTROLWALLCUT_THRESHOLD_L 50//左壁制御の壁切れの閾値
+#define CONTROLWALLCUT_THRESHOLD_R 50//右壁制御の壁切れの閾値
+
 
 #endif /* INC_DEFINE_H_ */
