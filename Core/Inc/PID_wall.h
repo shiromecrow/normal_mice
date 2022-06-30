@@ -13,6 +13,13 @@
 #define CONTROLLEFTWALL 1
 #define CONTROLRIGHTWALL 2
 
+//typedef struct {
+//	uint8_t g_WallControl_mode;//0で壁制御なし、1で通常の壁制御、2で斜めの制御
+//	uint8_t g_WallControlStatus;
+//
+//
+//}CONTROLWALL_MODE;
+
 extern uint8_t g_WallControl_mode;
 
 

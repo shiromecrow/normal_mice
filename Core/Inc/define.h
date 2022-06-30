@@ -8,6 +8,9 @@
 #ifndef INC_DEFINE_H_
 #define INC_DEFINE_H_
 
+#define ON 1
+#define OFF 0
+
 #define LIPO_LIMIT 11.3
 
 #define SPEAKER_LOUDNESS 0.003//
@@ -37,12 +40,12 @@
 
 // 壁制御に使用する値
 #define SENSOR_GAIN 0.5
-#define CENTER_L 120
-#define CENTER_R 120
-#define CONTROLWALL_THRESHOLD_L 80//左壁制御の閾値
-#define CONTROLWALL_THRESHOLD_R 80//右壁制御の閾値
-#define CONTROLWALLCUT_THRESHOLD_L 50//左壁制御の壁切れの閾値
-#define CONTROLWALLCUT_THRESHOLD_R 50//右壁制御の壁切れの閾値
+#define CENTER_L 299
+#define CENTER_R 277
+#define CONTROLWALL_THRESHOLD_L 120//左壁制御の閾値
+#define CONTROLWALL_THRESHOLD_R 120//右壁制御の閾値
+#define CONTROLWALLCUT_THRESHOLD_L 40//左壁制御の壁切れの閾値
+#define CONTROLWALLCUT_THRESHOLD_R 40//右壁制御の壁切れの閾値
 
 
 #endif /* INC_DEFINE_H_ */

@@ -1,4 +1,4 @@
-Core/Src/PID_wall.o: ../Core/Src/PID_wall.c ../Core/Inc/PID_wall.h \
+Core/Src/PL_switch.o: ../Core/Src/PL_switch.c ../Core/Inc/PL_switch.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -32,9 +32,8 @@ Core/Src/PID_wall.o: ../Core/Src/PID_wall.c ../Core/Inc/PID_wall.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/Control_sensor.h ../Core/Inc/PL_motor.h ../Core/Inc/tim.h \
- ../Core/Inc/main.h ../Core/Inc/define.h
-../Core/Inc/PID_wall.h:
+ ../Core/Inc/gpio.h ../Core/Inc/main.h
+../Core/Inc/PL_switch.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
@@ -68,8 +67,5 @@ Core/Src/PID_wall.o: ../Core/Src/PID_wall.c ../Core/Inc/PID_wall.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-../Core/Inc/Control_sensor.h:
-../Core/Inc/PL_motor.h:
-../Core/Inc/tim.h:
+../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
-../Core/Inc/define.h:

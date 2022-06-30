@@ -36,6 +36,8 @@
 #include "PL_motor.h"
 #include "Control_motor.h"
 #include "Control_sensor.h"
+#include "PID_wall.h"
+#include "mode_selection.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,11 +120,11 @@ int main(void)
   pl_lcd_puts("   STM32");
   HAL_Delay(500);
   pl_lcd_clear();
-  pl_lcd_pos(0, 0);
-  pl_lcd_puts("Mice");
-  pl_lcd_pos(1, 0);
-  pl_lcd_puts("aaa");
-  HAL_Delay(100);
+//  pl_lcd_pos(0, 0);
+//  pl_lcd_puts("Mice");
+//  pl_lcd_pos(1, 0);
+//  pl_lcd_puts("aaa");
+//  HAL_Delay(100);
 
   if(pl_getbatt() < LIPO_LIMIT){
 	  pl_lcd_clear();
@@ -134,7 +136,7 @@ int main(void)
   }
 
   uint16_t cnt = 0;
-  sensor_mode=1;
+  unsigned char mode1,mode2;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -142,6 +144,9 @@ int main(void)
 
   while (1)
   {
+	  mode1=mode_decision(0,mode1);
+	  mode2=mode_decision(1,mode2);
+	  mode_execution(mode1,mode2);
 // test LED1
 //	  HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin,GPIO_PIN_SET);
 //	  HAL_Delay(1000);
@@ -191,8 +196,8 @@ int main(void)
 //	 char strBuffer[17] = {0};
 //	 sprintf(strBuffer, "CNT=%04d", cnt);
 //	 cnt++;
-//	 lcd_pos(1, 0);
-//	 lcd_puts(strBuffer);
+//	 pl_lcd_pos(1, 0);
+//	 pl_lcd_puts(strBuffer);
 // sensor test
 //     HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,sizeof(g_ADCBuffer) / sizeof(uint16_t));
 //	 printf("BATT=%f\n",g_V_batt);
@@ -233,8 +238,7 @@ int main(void)
     //pl_test_speaker();
 // test_motor
 //     pl_test_motor();
-
-      control_test_motor();
+      control_test_motor(1);
 	  }
 
 

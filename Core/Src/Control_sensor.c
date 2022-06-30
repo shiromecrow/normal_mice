@@ -54,14 +54,12 @@ void interrupt_calSensor(void){
 		g_sensor[1][j] = g_sensor[1][j - 1];
 		g_sensor[2][j] = g_sensor[2][j - 1];
 		g_sensor[3][j] = g_sensor[3][j - 1];
-		g_sensor[4][j] = g_sensor[4][j - 1];
 	}
 	g_sensor[0][0] = g_sensor_on[0] - g_sensor_off[0];
 	g_sensor[1][0] = g_sensor_on[1] - g_sensor_off[1];
 	g_sensor[2][0] = g_sensor_on[2] - g_sensor_off[2];
 	g_sensor[3][0] = g_sensor_on[3] - g_sensor_off[3];
-	g_sensor[4][0] = g_sensor_on[4] - g_sensor_off[4];
-	for (j = 0; j <= 4; j++) {
+	for (j = 0; j <= 3; j++) {
 		g_sensor_diff[j]=g_sensor[j][0]-g_sensor[j][11];
 		g_sensor_mean[j] = (g_sensor[j][0] + g_sensor[j][1] + g_sensor[j][2]) / 3;
 	}

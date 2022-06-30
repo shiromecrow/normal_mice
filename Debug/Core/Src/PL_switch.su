@@ -1,0 +1,2 @@
+../Core/Src/PL_switch.c:12:6:read_switch1	16	static
+../Core/Src/PL_switch.c:20:6:read_switch2	16	static

@@ -107,9 +107,9 @@ void pl_callback_getSensor(void) {
 /*	センサーの情報を取得する割り込み関数．						*/
 /*******************************************************************/
 void pl_interupt_getSensor(void){
-	if (sensor_mode == 1) {
+
 		HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,
 				sizeof(g_ADCBuffer) / sizeof(uint16_t));
-	}
+
 
 }

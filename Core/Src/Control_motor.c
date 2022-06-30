@@ -20,19 +20,28 @@ TARGET g_TargetTurning;
 TRAPEZOID g_TrapezoidStraight;
 TRAPEZOID g_TrapezoidTurning;
 
+
+
 char modeacc;
 volatile char g_acc_flag;
 
-void control_test_motor(void)
+void control_test_motor(uint8_t WallMode)
 {
+	MOTOR_MODE mode;
+//	mode.WallControlMode=0;
+	mode.WallControlMode=WallMode;
+	mode.WallControlStatus=0;
+	mode.WallCutMode=0;
+	mode.calMazeMode=0;
 	pl_motor_standby(1);
 	pl_motor_start();
 
-//	float v_e=straight_table(-180, -100, -100, -500, 7000);
-//	float v_e=straight_table(180, 200, 200, 600, 7000);
-	float v_e=straight_table(180, 150, 600, 600, 7000);
-	slalom_table(v_e,90, 0, 0, 400, 7000);
-	v_e=straight_table(180, v_e, 150, 600, 7000);
+//	float v_e=straight_table(-180, -100, -100, -500, 7000, mode);
+	float v_e=straight_table(540, 200, 200, 600, 7000, mode);
+
+//	float v_e=straight_table(180, 150, 600, 600, 7000);
+//	slalom_table(v_e,90, 0, 0, 400, 7000);
+//	v_e=straight_table(180, v_e, 150, 600, 7000);
 	pl_motor_stop();
 	HAL_Delay(500);
 
@@ -237,12 +246,15 @@ if (input.displacement>=0){
 
 
 float straight_table(float input_displacement, float input_start_velocity,
-	float input_end_velocity, float input_count_velocity, float input_acceleration) {
+	float input_end_velocity, float input_count_velocity, float input_acceleration,MOTOR_MODE mode) {
 
 	float MinRequired_displacement=
 			(input_end_velocity*input_end_velocity
 					-input_start_velocity*input_start_velocity
 					)/2/input_acceleration;
+
+	g_WallControl_mode=mode.WallControlMode;
+	//g_WallControlStatus=mode.WallControlStatus;
 	// 例外処理
 	if (input_acceleration < 0){input_acceleration=-input_acceleration;}//加速が負
 

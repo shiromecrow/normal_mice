@@ -26,12 +26,22 @@ typedef struct{
 
 }TRAPEZOID;
 
+typedef struct {
+	uint8_t WallControlMode;//0で壁制御なし、1で通常の壁制御、2で斜めの制御
+	uint8_t WallControlStatus;
+	uint8_t calMazeMode;
+	uint8_t WallCutMode;
+
+
+
+}MOTOR_MODE;
+
 
 
 extern TARGET g_TargetStraight;;
 extern TARGET g_TargetTurning;
 
-void control_test_motor();
+void control_test_motor(uint8_t);
 
 void motor_init();
 
@@ -40,7 +50,7 @@ void interrupt_Motor();
 
 void cal_table(TRAPEZOID,TARGET *);
 
-float straight_table(float, float, float, float, float);
+float straight_table(float, float, float, float, float,MOTOR_MODE);
 
 float turning_table(float, float, float, float, float);
 
