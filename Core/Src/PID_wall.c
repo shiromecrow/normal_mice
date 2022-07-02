@@ -48,7 +48,7 @@ float calWallConrol(void){
     }else if (g_WallControl_mode == 1) {
 
 		// 左壁の有無の判定
-		if ((g_WallControlStatus >> 0)&1 == 1){
+		if ((g_WallControlStatus >> 0) & 1 == 1){
 			//前回左壁あり
 			//閾値を下回る　or 変化量の急増
 			if (g_sensor[SENSOR_LEFT][0] < CONTROLWALL_THRESHOLD_L || g_sensor_diff[SENSOR_LEFT] > CONTROLWALLCUT_THRESHOLD_L){

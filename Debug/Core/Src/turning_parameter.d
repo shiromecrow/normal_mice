@@ -1,6 +1,6 @@
-Core/Src/mode_selection.o: ../Core/Src/mode_selection.c \
- ../Core/Inc/mode_selection.h ../Core/Inc/record.h \
- ../Core/Inc/Control_sensor.h ../Core/Inc/Control_motor.h \
+Core/Src/turning_parameter.o: ../Core/Src/turning_parameter.c \
+ ../Core/Inc/turning_parameter.h ../Core/Inc/maze_Turning.h \
+ ../Core/Inc/Control_motor.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -33,14 +33,9 @@ Core/Src/mode_selection.o: ../Core/Src/mode_selection.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/PL_switch.h ../Core/Inc/PL_led.h ../Core/Inc/PL_sensor.h \
- ../Core/Inc/PL_lcd.h ../Core/Inc/PL_timer.h ../Core/Inc/PL_speaker.h \
- ../Core/Inc/define.h ../Core/Inc/maze_Turning.h \
- ../Core/Inc/Control_motor.h
-../Core/Inc/mode_selection.h:
-../Core/Inc/record.h:
-../Core/Inc/Control_sensor.h:
+ ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
+../Core/Inc/turning_parameter.h:
+../Core/Inc/maze_Turning.h:
 ../Core/Inc/Control_motor.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -75,12 +70,3 @@ Core/Src/mode_selection.o: ../Core/Src/mode_selection.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-../Core/Inc/PL_switch.h:
-../Core/Inc/PL_led.h:
-../Core/Inc/PL_sensor.h:
-../Core/Inc/PL_lcd.h:
-../Core/Inc/PL_timer.h:
-../Core/Inc/PL_speaker.h:
-../Core/Inc/define.h:
-../Core/Inc/maze_Turning.h:
-../Core/Inc/Control_motor.h:

@@ -10,10 +10,14 @@
 
 #define ON 1
 #define OFF 0
+#define CONNECT 2
+
+#define EXPLORATION 0
+#define SHORTEST 0
 
 #define LIPO_LIMIT 11.3
 
-#define SPEAKER_LOUDNESS 0.003//
+#define SPEAKER_LOUDNESS 0.005//
 
 #define STEP_DEGREE 0.9//ステップ角[°]
 #define TIRE_DIAMETER 52//タイヤ径[mm]
@@ -46,6 +50,18 @@
 #define CONTROLWALL_THRESHOLD_R 120//右壁制御の閾値
 #define CONTROLWALLCUT_THRESHOLD_L 40//左壁制御の壁切れの閾値
 #define CONTROLWALLCUT_THRESHOLD_R 40//右壁制御の壁切れの閾値
+
+
+// 探索に使用する値
+#define MAX_WALKCOUNT 255
+#define GOAL_X 3
+#define GOAL_Y 3
+// 探索に使用する値(調整必要)
+#define BACK_TO_CENTER 39.5//壁のケツ当てから中心までの距離
+#define MAZE_OFFSET 20//迷路展開に使用するオフセット
+#define F_PRESENCE 80
+#define R_PRESENCE 80
+#define L_PRESENCE 80
 
 
 #endif /* INC_DEFINE_H_ */

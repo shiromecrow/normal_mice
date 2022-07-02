@@ -38,6 +38,7 @@
 #include "Control_sensor.h"
 #include "PID_wall.h"
 #include "mode_selection.h"
+#include "turning_parameter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -114,17 +115,14 @@ int main(void)
   pl_timer_init();
   pl_lcd_init();
   motor_init();
+  record_reset();
+  input_parameter();
 
   pl_lcd_puts("Hello");
   pl_lcd_pos(1, 0);
   pl_lcd_puts("   STM32");
   HAL_Delay(500);
   pl_lcd_clear();
-//  pl_lcd_pos(0, 0);
-//  pl_lcd_puts("Mice");
-//  pl_lcd_pos(1, 0);
-//  pl_lcd_puts("aaa");
-//  HAL_Delay(100);
 
   if(pl_getbatt() < LIPO_LIMIT){
 	  pl_lcd_clear();
@@ -145,6 +143,7 @@ int main(void)
   while (1)
   {
 	  mode1=mode_decision(0,mode1);
+	  wait_ms(1000);
 	  mode2=mode_decision(1,mode2);
 	  mode_execution(mode1,mode2);
 // test LED1
@@ -201,8 +200,8 @@ int main(void)
 // sensor test
 //     HAL_ADC_Start_DMA(&hadc1, g_ADCBuffer,sizeof(g_ADCBuffer) / sizeof(uint16_t));
 //	 printf("BATT=%f\n",g_V_batt);
-     printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor[0][0],g_sensor[1][0],g_sensor[2][0],g_sensor[3][0]);
-     wait_ms(500);
+//     printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_sensor[0][0],g_sensor[1][0],g_sensor[2][0],g_sensor[3][0]);
+//     wait_ms(500);
 // motor test
 //	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 //    	HAL_GPIO_WritePin(INTERFACELED_GPIO_Port,INTERFACELED_Pin,GPIO_PIN_SET);
@@ -233,13 +232,13 @@ int main(void)
 //	 	HAL_Delay(1000);
 //	  }
 
-	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
+//	  if (HAL_GPIO_ReadPin(SWITCH_1_GPIO_Port,SWITCH_1_Pin)==0){
 // test_speaker_music
     //pl_test_speaker();
 // test_motor
 //     pl_test_motor();
-      control_test_motor(1);
-	  }
+//      control_test_motor(1);
+//	  }
 
 
 

@@ -1,7 +1,7 @@
-../Core/Src/mode_selection.c:25:15:mode_decision	16	static
-../Core/Src/mode_selection.c:70:6:mode_display0	16	static
-../Core/Src/mode_selection.c:91:6:mode_display1	40	static
-../Core/Src/mode_selection.c:106:6:mode_execution	16	static
-../Core/Src/mode_selection.c:125:6:mode_PLtest	80	static
-../Core/Src/mode_selection.c:206:6:mode_Running	80	static
-../Core/Src/mode_selection.c:288:6:mode_Tuning	80	static
+../Core/Src/mode_selection.c:29:15:mode_decision	16	static
+../Core/Src/mode_selection.c:87:6:mode_display0	16	static
+../Core/Src/mode_selection.c:114:6:mode_display1	40	static
+../Core/Src/mode_selection.c:129:6:mode_execution	16	static
+../Core/Src/mode_selection.c:167:6:mode_PLtest	80	static
+../Core/Src/mode_selection.c:258:6:mode_Running	16	static
+../Core/Src/mode_selection.c:282:6:mode_Tuning	336	static

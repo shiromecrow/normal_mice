@@ -1,0 +1,4 @@
+../Core/Src/record.c:24:6:record_reset	4	static
+../Core/Src/record.c:31:6:record_data	24	static
+../Core/Src/record.c:45:6:record_print	16	static
+../Core/Src/record.c:56:6:interrupt_record	24	static

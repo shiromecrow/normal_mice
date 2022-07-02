@@ -9,6 +9,9 @@
 #define INC_MODE_SELECTION_H_
 
 
+#define MAX_MODE0 5
+#define MAX_MODE1 15
+
 unsigned char mode_decision(unsigned char,unsigned char);
 
 void mode_display0();

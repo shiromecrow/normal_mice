@@ -45,7 +45,6 @@ void control_test_motor(uint8_t WallMode)
 	pl_motor_stop();
 	HAL_Delay(500);
 
-	pl_motor_standby(1);
 	pl_motor_start();
 	v_e=turning_table(360, 240, 240, 600, 7000);
 
@@ -53,6 +52,29 @@ void control_test_motor(uint8_t WallMode)
 	HAL_Delay(500);
 	pl_motor_standby(0);
 }
+
+void control_test_motor2(uint8_t turn_mode,uint8_t WallMode)
+{
+	MOTOR_MODE mode;
+//	mode.WallControlMode=0;
+	mode.WallControlMode=WallMode;
+	mode.WallControlStatus=0;
+	mode.WallCutMode=0;
+	mode.calMazeMode=0;
+	pl_motor_standby(1);
+	pl_motor_start();
+
+if(turn_mode==0){
+	straight_table(540, 100, 100, 600, 7000, mode);
+}else{
+	turning_table(360*5, 120, 120, 600, 7000);
+}
+
+	pl_motor_stop();
+	HAL_Delay(500);
+	pl_motor_standby(0);
+}
+
 
 /*******************************************************************/
 /*	モータの初期化					(pl_speaker_init)	*/
@@ -284,6 +306,9 @@ float straight_table(float input_displacement, float input_start_velocity,
 	//pl_motor_start();
 	while (g_acc_flag!=4){
 //		printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_motorCount_l,g_motorCount_r,g_motorCount_l,g_motorCount_l);
+		if(mode.calMazeMode==1){
+		update_wall(direction,front_wall ,right_wall,left_wall,x,y);
+		}
 	}
 	modeacc = 0;
 

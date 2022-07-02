@@ -37,7 +37,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/define.h ../Core/Inc/PL_timer.h ../Core/Inc/PL_lcd.h \
  ../Core/Inc/PL_sensor.h ../Core/Inc/PL_speaker.h ../Core/Inc/PL_motor.h \
  ../Core/Inc/Control_motor.h ../Core/Inc/Control_sensor.h \
- ../Core/Inc/PID_wall.h ../Core/Inc/mode_selection.h
+ ../Core/Inc/PID_wall.h ../Core/Inc/mode_selection.h \
+ ../Core/Inc/turning_parameter.h
 ../Core/Inc/main.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -89,3 +90,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/Control_sensor.h:
 ../Core/Inc/PID_wall.h:
 ../Core/Inc/mode_selection.h:
+../Core/Inc/turning_parameter.h:

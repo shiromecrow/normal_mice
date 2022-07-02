@@ -26,6 +26,8 @@
 #include "PL_sensor.h"
 #include "PL_motor.h"
 #include "Control_motor.h"
+#include "Control_sensor.h"
+#include "record.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -260,8 +262,8 @@ void TIM6_DAC_IRQHandler(void)
   pl_timer_count();
   pl_interupt_getSensor();
   interrupt_calSensor();
-
   interrupt_Motor();
+  interrupt_record();
 
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
