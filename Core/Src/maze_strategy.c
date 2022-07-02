@@ -103,7 +103,7 @@ _Bool left_wall;
 
 
 
-void adati_wayreturn(float input_StraightVelocity, float input_TurningVelocity, float input_StraightAcceleration,
+void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, float input_StraightAcceleration,
 		float input_TurningAcceleration) {
 
 	unsigned short front_count, right_count, back_count, left_count;
@@ -126,7 +126,7 @@ void adati_wayreturn(float input_StraightVelocity, float input_TurningVelocity, 
 	right_wall=(g_sensor_mean[2] >= R_PRESENCE);
 	left_wall=(g_sensor_mean[1] >= L_PRESENCE);
 
-	update_wall(direction,front_wall ,right_wall,left_wall,x,y);
+	maze_maker();
 
 	HAL_Delay(100);
 
@@ -135,7 +135,7 @@ void adati_wayreturn(float input_StraightVelocity, float input_TurningVelocity, 
 
 	while (1) {
 
-		update_coordinate(direction, &x, &y);
+		update_coordinate();
 
 		front_wall=((int)((float)(g_sensor_mean[0]+g_sensor_mean[3])/2) >= F_PRESENCE);
 		right_wall=(g_sensor_mean[2] >= R_PRESENCE);
@@ -159,7 +159,7 @@ void adati_wayreturn(float input_StraightVelocity, float input_TurningVelocity, 
 				v_e=straight_table(180-MAZE_OFFSET, v_e,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
 
 
-				update_coordinate(direction, &x, &y);
+				update_coordinate();
 
 				front_wall=((int)((float)(g_sensor_mean[0]+g_sensor_mean[3])/2) >= F_PRESENCE);
 				right_wall=(g_sensor_mean[2] >= R_PRESENCE);
@@ -316,13 +316,13 @@ void adati_wayreturn(float input_StraightVelocity, float input_TurningVelocity, 
 
 	while (1) {
 
-		update_coordinate(direction, &x, &y);
+		update_coordinate();
 
 		front_wall=((int)((float)(g_sensor_mean[0]+g_sensor_mean[3])/2) >= F_PRESENCE);
 		right_wall=(g_sensor_mean[2] >= R_PRESENCE);
 		left_wall=(g_sensor_mean[1] >= L_PRESENCE);
 		mode.WallControlMode=1;
-		mode.calMazeMode=1;
+		mode.calMazeMode=2;
 		mode.WallCutMode=0;
 		v_e=straight_table(MAZE_OFFSET, v_e,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
 
@@ -498,53 +498,6 @@ void update_coordinate(void){
 }
 
 
-void search_AroundWalkCount(unsigned short *front_count,unsigned short *right_count,unsigned short *back_count,unsigned short *left_count){
-//int direction,int x_coordinate,int y_coordinate
-	unsigned short north_count,east_count,south_count,west_count;
-//	unsigned short front_count, right_count, back_count, left_count;
 
-	if (y >= 15) {north_count = MAX_WALKCOUNT;}
-	else {north_count = walk_count[16 * x + y + 1];}
-
-	if (x >= 15) {east_count = MAX_WALKCOUNT;}
-	else {east_count = walk_count[16 * (x + 1) + y];}
-
-	if (y <= 0) {south_count = MAX_WALKCOUNT;}
-	else {south_count = walk_count[16 * x + y - 1];}
-
-	if (x <= 0) {west_count = MAX_WALKCOUNT;}
-	else {west_count = walk_count[16 * (x - 1) + y];}
-
-
-	switch (direction) {		//
-	case 1:
-		*front_count = north_count;
-		*right_count = east_count;
-		*back_count = south_count;
-		*left_count = west_count;
-		break;
-	case 2:
-		*front_count = east_count;
-		*right_count = south_count;
-		*back_count = west_count;
-		*left_count = north_count;
-		break;
-	case 3:
-		*front_count = south_count;
-		*right_count = west_count;
-		*back_count = north_count;
-		*left_count = east_count;
-		break;
-	case 4:
-		*front_count = west_count;
-		*right_count = north_count;
-		*back_count = east_count;
-		*left_count = south_count;
-		break;
-
-	}
-
-
-}
 
 

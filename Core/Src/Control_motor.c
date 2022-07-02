@@ -13,6 +13,8 @@
 #include "math.h"
 #include "PID_wall.h"
 
+#include "maze_wall.h"
+
 
 TARGET g_TargetStraight;
 TARGET g_TargetTurning;
@@ -307,7 +309,9 @@ float straight_table(float input_displacement, float input_start_velocity,
 	while (g_acc_flag!=4){
 //		printf("SEN1=%d,SEN2=%d,SEN3=%d,SEN4=%d\n", g_motorCount_l,g_motorCount_r,g_motorCount_l,g_motorCount_l);
 		if(mode.calMazeMode==1){
-		update_wall(direction,front_wall ,right_wall,left_wall,x,y);
+			maze_maker();
+		}else if(mode.calMazeMode==2){
+			maze_makerBack();
 		}
 	}
 	modeacc = 0;

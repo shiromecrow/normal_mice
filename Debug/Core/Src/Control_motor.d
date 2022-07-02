@@ -33,7 +33,8 @@ Core/Src/Control_motor.o: ../Core/Src/Control_motor.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/PL_motor.h ../Core/Inc/define.h ../Core/Inc/PID_wall.h
+ ../Core/Inc/PL_motor.h ../Core/Inc/define.h ../Core/Inc/PID_wall.h \
+ ../Core/Inc/maze_wall.h
 ../Core/Inc/Control_motor.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -71,3 +72,4 @@ Core/Src/Control_motor.o: ../Core/Src/Control_motor.c \
 ../Core/Inc/PL_motor.h:
 ../Core/Inc/define.h:
 ../Core/Inc/PID_wall.h:
+../Core/Inc/maze_wall.h:

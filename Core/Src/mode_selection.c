@@ -21,8 +21,9 @@
 #include "stdio.h"
 #include "math.h"
 
+#include "maze_wall.h"
 #include "maze_Turning.h"
-
+#include "maze_strategy.h"
 
 
 
@@ -258,9 +259,11 @@ void mode_PLtest(unsigned char now_mode2){
 void mode_Running(unsigned char now_mode2){
 
 	switch (now_mode2) {
-		case 0://左手法
+		case 0://迷路情報の可視化
+			maze_display();
 		break;
 		case 1://足立法
+			AdatiWayReturn(500, 500, 7000,7000);
 		break;
 		case 2://足立法(帰りあり)
 		break;

@@ -25,16 +25,17 @@ extern unsigned short walk_count[256]; //歩数いれる箱
 
 
 void maze_clear();
-void update_wall(int, _Bool , _Bool, _Bool,int, int);
+void update_wall();
+void search_AroundWalkCount(unsigned short *,unsigned short *,unsigned short *,unsigned short *);
 
-void maze_maker(int,int,int,int,int,int);
-void maze_maker2(int,int,int,int,int,int);
-void maze_makerhosuu(int,int,int);
-void maze_makerST(int);
-void maze_makerRun(int,int,int,int,int,int);
-void maze_makeronly(int,int,int,int,int,int);
-void maze_makerback(int,int,int,int,int,int);
-void maze_makerslant(void);
+void maze_maker0();
+void maze_maker();
+//void maze_makerhosuu(int,int,int);
+//void maze_makerST(int);
+//void maze_makerRun(int,int,int,int,int,int);
+//void maze_makeronly(int,int,int,int,int,int);
+void maze_makerBack();
+//void maze_makerslant(void);
 
 void maze_display();
 

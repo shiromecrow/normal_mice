@@ -10,6 +10,12 @@
 
 //int pass[255]; //1f 2r 3l
 
+extern int x;
+extern int y;
+extern int direction;
+extern _Bool front_wall;
+extern _Bool right_wall;
+extern _Bool left_wall;
 
 
 
@@ -22,7 +28,7 @@ void AdatiWayReturn(float,float,float,float);
 
 void update_coordinate();
 
-void search_AroundWalkCount(unsigned short *,unsigned short *,unsigned short *,unsigned short *);
+
 
 //void most_speed(float,float,int,char,char,parameter_speed);
 //void most_speed3(float,float,int);
