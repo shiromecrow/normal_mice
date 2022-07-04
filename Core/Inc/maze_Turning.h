@@ -20,6 +20,8 @@ typedef struct {
 
 typedef struct {
 
+	float SlalomCentervelocity;
+	float TurnCentervelocity;
 parameter slalom_R;
 parameter slalom_L;
 parameter turn90_R;

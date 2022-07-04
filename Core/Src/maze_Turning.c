@@ -70,7 +70,7 @@ void slalomR(parameter turnpara,char test_mode,char shortest_mode) {
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-				straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
+				straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
 						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
 
 	}
@@ -95,7 +95,7 @@ void slalomL(parameter turnpara,char test_mode,char shortest_mode) {
 
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(90 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
+		straight_table(90 + turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
 				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
 
 //		record_mode = 0;

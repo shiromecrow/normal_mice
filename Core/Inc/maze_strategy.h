@@ -9,6 +9,7 @@
 #define INC_MAZE_STRATEGY_H_
 
 //int pass[255]; //1f 2r 3l
+#include "maze_Turning.h"
 
 extern int x;
 extern int y;
@@ -29,7 +30,7 @@ void AdatiWayReturn(float,float,float,float);
 void update_coordinate();
 
 
-
+void ShortestWay(float, float,parameter_speed,char);
 //void most_speed(float,float,int,char,char,parameter_speed);
 //void most_speed3(float,float,int);
 

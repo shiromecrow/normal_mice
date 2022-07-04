@@ -28,7 +28,7 @@ void maze_clear();
 void update_wall();
 void search_AroundWalkCount(unsigned short *,unsigned short *,unsigned short *,unsigned short *);
 
-void maze_maker0();
+void maze_maker0(_Bool,_Bool);
 void maze_maker();
 //void maze_makerhosuu(int,int,int);
 //void maze_makerST(int);

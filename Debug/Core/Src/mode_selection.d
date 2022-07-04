@@ -36,8 +36,9 @@ Core/Src/mode_selection.o: ../Core/Src/mode_selection.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Core/Inc/PL_switch.h ../Core/Inc/PL_led.h ../Core/Inc/PL_sensor.h \
  ../Core/Inc/PL_lcd.h ../Core/Inc/PL_timer.h ../Core/Inc/PL_speaker.h \
- ../Core/Inc/define.h ../Core/Inc/maze_wall.h ../Core/Inc/maze_Turning.h \
- ../Core/Inc/Control_motor.h ../Core/Inc/maze_strategy.h
+ ../Core/Inc/PL_motor.h ../Core/Inc/define.h ../Core/Inc/maze_wall.h \
+ ../Core/Inc/maze_Turning.h ../Core/Inc/Control_motor.h \
+ ../Core/Inc/maze_strategy.h ../Core/Inc/maze_Turning.h
 ../Core/Inc/mode_selection.h:
 ../Core/Inc/record.h:
 ../Core/Inc/Control_sensor.h:
@@ -81,8 +82,10 @@ Core/Src/mode_selection.o: ../Core/Src/mode_selection.c \
 ../Core/Inc/PL_lcd.h:
 ../Core/Inc/PL_timer.h:
 ../Core/Inc/PL_speaker.h:
+../Core/Inc/PL_motor.h:
 ../Core/Inc/define.h:
 ../Core/Inc/maze_wall.h:
 ../Core/Inc/maze_Turning.h:
 ../Core/Inc/Control_motor.h:
 ../Core/Inc/maze_strategy.h:
+../Core/Inc/maze_Turning.h:

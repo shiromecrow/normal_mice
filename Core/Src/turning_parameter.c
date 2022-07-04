@@ -12,16 +12,16 @@
 void input_parameter(void){
 
 speed500_exploration.slalom_R.g_speed=500;
-speed500_exploration.slalom_R.t_speed=500;
-speed500_exploration.slalom_R.t_acc=9000;
-speed500_exploration.slalom_R.f_ofset=41;//55;
+speed500_exploration.slalom_R.t_speed=550;
+speed500_exploration.slalom_R.t_acc=10000;
+speed500_exploration.slalom_R.f_ofset=4;//55;
 speed500_exploration.slalom_R.e_ofset=25;
 
 speed500_exploration.slalom_L.g_speed=500;
-speed500_exploration.slalom_L.t_speed=500;
-speed500_exploration.slalom_L.t_acc=9000;
-speed500_exploration.slalom_L.f_ofset=40;//50;
-speed500_exploration.slalom_L.e_ofset=29;
+speed500_exploration.slalom_L.t_speed=550;
+speed500_exploration.slalom_L.t_acc=10000;
+speed500_exploration.slalom_L.f_ofset=1;//50;
+speed500_exploration.slalom_L.e_ofset=19;
 
 
 speed500_exploration.turn90_R.g_speed=1200;

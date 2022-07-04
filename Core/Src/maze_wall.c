@@ -224,8 +224,12 @@ void search_AroundWalkCount(unsigned short *front_count,unsigned short *right_co
 
 
 
-void maze_maker0(void) {
+void maze_maker0(_Bool WallUpdataMode,_Bool WalkUpdataMode) {
+	if(WallUpdataMode){
 	update_wall();
+	}
+
+	if(WalkUpdataMode){
 //	歩数マップを作成　*************************************
 	int tt = 0;
 	while (tt <= 255) {
@@ -290,6 +294,7 @@ void maze_maker0(void) {
 		}
 		if (count_number == 255) {break;}
 		count_number++;
+	}
 	}
 
 }

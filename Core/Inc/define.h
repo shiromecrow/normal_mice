@@ -13,15 +13,15 @@
 #define CONNECT 2
 
 #define EXPLORATION 0
-#define SHORTEST 0
+#define SHORTEST 1
 
 #define LIPO_LIMIT 11.3
 
 #define SPEAKER_LOUDNESS 0.005//
 
 #define STEP_DEGREE 0.9//ステップ角[°]
-#define TIRE_DIAMETER 52//タイヤ径[mm]
-#define TREAD_WIDTH 81//トレッド幅[mm]
+#define TIRE_DIAMETER 50.9//タイヤ径[mm]
+#define TREAD_WIDTH 82.12//トレッド幅[mm]
 
 #define INTERRUPT_TIME 0.001//割り込み時間[s]
 
@@ -43,13 +43,13 @@
 #define SENSOR_FINGER_3 400
 
 // 壁制御に使用する値
-#define SENSOR_GAIN 0.5
+#define SENSOR_GAIN 0.09
 #define CENTER_L 299
 #define CENTER_R 277
-#define CONTROLWALL_THRESHOLD_L 120//左壁制御の閾値
-#define CONTROLWALL_THRESHOLD_R 120//右壁制御の閾値
-#define CONTROLWALLCUT_THRESHOLD_L 40//左壁制御の壁切れの閾値
-#define CONTROLWALLCUT_THRESHOLD_R 40//右壁制御の壁切れの閾値
+#define CONTROLWALL_THRESHOLD_L 110//左壁制御の閾値
+#define CONTROLWALL_THRESHOLD_R 110//右壁制御の閾値
+#define CONTROLWALLCUT_THRESHOLD_L 25//左壁制御の壁切れの閾値
+#define CONTROLWALLCUT_THRESHOLD_R 25//右壁制御の壁切れの閾値
 
 
 // 探索に使用する値
@@ -57,11 +57,11 @@
 #define GOAL_X 3
 #define GOAL_Y 3
 // 探索に使用する値(調整必要)
-#define BACK_TO_CENTER 39.5//壁のケツ当てから中心までの距離
+#define BACK_TO_CENTER 30.5//壁のケツ当てから中心までの距離
 #define MAZE_OFFSET 20//迷路展開に使用するオフセット
-#define F_PRESENCE 80
-#define R_PRESENCE 80
-#define L_PRESENCE 80
+#define F_PRESENCE 45
+#define R_PRESENCE 100
+#define L_PRESENCE 100
 
 
 #endif /* INC_DEFINE_H_ */

@@ -16,6 +16,7 @@
 #include "PL_lcd.h"
 #include "PL_timer.h"
 #include "PL_speaker.h"
+#include "PL_motor.h"
 #include "define.h"
 
 #include "stdio.h"
@@ -284,6 +285,11 @@ void mode_Running(unsigned char now_mode2){
 
 void mode_Tuning(unsigned char now_mode2){
 
+	pl_motor_standby(1);
+	while(read_switch1()==1 && read_switch2()==1){
+		wait_ms(1);
+		}
+
 	switch (now_mode2) {
 		case 0://タイヤ径
 			control_test_motor2(0,0);
@@ -301,6 +307,7 @@ void mode_Tuning(unsigned char now_mode2){
 			testturning(speed500_exploration,1,0);
 		break;
 		case 5://右スラローム
+			control_test_motor2(2,1);
 		break;
 		case 6://左スラローム
 		break;

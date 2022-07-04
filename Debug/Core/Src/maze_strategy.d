@@ -1,5 +1,6 @@
 Core/Src/maze_strategy.o: ../Core/Src/maze_strategy.c \
- ../Core/Inc/maze_strategy.h ../Core/Inc/Control_motor.h \
+ ../Core/Inc/maze_strategy.h ../Core/Inc/maze_Turning.h \
+ ../Core/Inc/Control_motor.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../Core/Inc/stm32l4xx_hal_conf.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -33,10 +34,11 @@ Core/Src/maze_strategy.o: ../Core/Src/maze_strategy.c \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/Control_sensor.h ../Core/Inc/PL_timer.h \
- ../Core/Inc/maze_Turning.h ../Core/Inc/Control_motor.h \
- ../Core/Inc/PL_motor.h ../Core/Inc/define.h ../Core/Inc/maze_wall.h
+ ../Core/Inc/Control_motor.h ../Core/Inc/Control_sensor.h \
+ ../Core/Inc/PL_timer.h ../Core/Inc/maze_Turning.h ../Core/Inc/PL_motor.h \
+ ../Core/Inc/define.h ../Core/Inc/maze_wall.h
 ../Core/Inc/maze_strategy.h:
+../Core/Inc/maze_Turning.h:
 ../Core/Inc/Control_motor.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../Core/Inc/stm32l4xx_hal_conf.h:
@@ -71,10 +73,10 @@ Core/Src/maze_strategy.o: ../Core/Src/maze_strategy.c \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+../Core/Inc/Control_motor.h:
 ../Core/Inc/Control_sensor.h:
 ../Core/Inc/PL_timer.h:
 ../Core/Inc/maze_Turning.h:
-../Core/Inc/Control_motor.h:
 ../Core/Inc/PL_motor.h:
 ../Core/Inc/define.h:
 ../Core/Inc/maze_wall.h:

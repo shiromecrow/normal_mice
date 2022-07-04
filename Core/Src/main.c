@@ -130,7 +130,7 @@ int main(void)
 	  pl_lcd_puts("LIPO");
 	  pl_lcd_pos(1, 0);
 	  pl_lcd_puts("error");
-	  HAL_Delay(1000);
+	  HAL_Delay(10000);
   }
 
   uint16_t cnt = 0;
