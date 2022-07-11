@@ -269,6 +269,7 @@ void mode_Running(unsigned char now_mode2){
 		case 2://足立法(帰りあり)
 		break;
 		case 3://最短走行(パス圧縮なし)
+			ShortestWay(1000,10000,speed600_shortest,0);
 		break;
 		case 4://最短走行(パス圧縮あり)
 		break;

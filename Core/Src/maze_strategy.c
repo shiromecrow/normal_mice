@@ -113,19 +113,20 @@ void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, f
 	y=0;
 	direction=1;
 //	maze_mode = 1;
-
 	MOTOR_MODE mode;
 	mode.WallControlMode=1;
 	mode.WallControlStatus=0;
 	mode.WallCutMode=0;
 	mode.calMazeMode=0;
+
+
 	pl_motor_standby(1);
 	HAL_Delay(500);
-
+//初期位置のセンサー確認
 	front_wall=((int)((float)(g_sensor_mean[0]+g_sensor_mean[3])/2) >= F_PRESENCE);
 	right_wall=(g_sensor_mean[2] >= R_PRESENCE);
 	left_wall=(g_sensor_mean[1] >= L_PRESENCE);
-
+//初期位置での迷路展開
 	maze_maker();
 
 	HAL_Delay(100);
@@ -880,10 +881,10 @@ void ShortestWay(float input_StraightVelocity, float input_StraightAcceleration,
 		printf("pass_count %d pass %d\n", t, pass[t]);
 		t++;
 	}
-
+wait_ms(1000);
 // 最短走行の実行
 	MOTOR_MODE mode;
-	float v_e;
+	float v_start,v_end;
 	mode.WallControlMode=1;
 	mode.WallControlStatus=0;
 	mode.WallCutMode=0;
@@ -898,13 +899,14 @@ void ShortestWay(float input_StraightVelocity, float input_StraightAcceleration,
 //	wall_control = 0;
 	pass_count = 0;
 
-	if (pass[pass_count] == -2 || pass[pass_count] == -3) {
-		//straight_table(39.5, 0, 800, 800, 26000);
-		v_e=straight_table(BACK_TO_CENTER, 120,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
-	} else {
-		v_e=straight_table(BACK_TO_CENTER, 120,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
-		//straight_table(39.5, 0, howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed * howspeed.turn90_R.g_speed / 39.5);
-	}
+//	if (pass[pass_count] == -2 || pass[pass_count] == -3) {
+//		//straight_table(39.5, 0, 800, 800, 26000);
+//		v_e=straight_table(BACK_TO_CENTER, 120,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
+//	} else {
+//		v_e=straight_table(BACK_TO_CENTER, 120,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
+//		//straight_table(39.5, 0, howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed * howspeed.turn90_R.g_speed / 39.5);
+//	}
+	v_start=straight_table(BACK_TO_CENTER, 120,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity * input_turn.TurnCentervelocity / BACK_TO_CENTER, mode);
 
 	while (pass_count <= 255) {
 
@@ -976,23 +978,18 @@ void ShortestWay(float input_StraightVelocity, float input_StraightAcceleration,
 			pass_count++;
 		}
 		if (pass[pass_count] >= 1) {
-			if (pass_count >= 1) {
-
-				if (pass[pass_count - 1] == -2 || pass[pass_count - 1] == -3) {
-					//first_v = 800;
-				}
-			}
+			v_end = input_turn.TurnCentervelocity;
 			if (pass[pass_count + 1] == -2 || pass[pass_count + 1] == -3) {
-				//last_v = 800;
+				v_end = input_turn.SlalomCentervelocity;
 			}
 			if (pass[pass_count] >= 50) {
 				//wall_control_mode = 2;
-				v_e=straight_table((90 * 1.414 * (pass[pass_count] - 50)), v_e,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
-				//straight_table((90 * 1.414 * (pass[pass_count] - 50)), first_v,last_v, inspeed, inacc);
-
+				v_start=straight_table((90 * 1.414 * (pass[pass_count] - 50)), v_start,v_end,input_StraightVelocity,input_StraightAcceleration, mode);
 			} else {
 				//wall_control_mode = 1;
 				//straight_table((90 * pass[pass_count]), first_v, last_v,inspeed, inacc);
+				v_start=straight_table((90 * pass[pass_count]), v_start,v_end,input_StraightVelocity,input_StraightAcceleration, mode);
+
 			}
 			pass_count++;
 		}

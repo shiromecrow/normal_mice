@@ -3,5 +3,5 @@
 ../Core/Src/mode_selection.c:116:6:mode_display1	40	static
 ../Core/Src/mode_selection.c:131:6:mode_execution	16	static
 ../Core/Src/mode_selection.c:169:6:mode_PLtest	80	static
-../Core/Src/mode_selection.c:260:6:mode_Running	16	static
-../Core/Src/mode_selection.c:286:6:mode_Tuning	336	static
+../Core/Src/mode_selection.c:260:6:mode_Running	344	static
+../Core/Src/mode_selection.c:287:6:mode_Tuning	344	static
