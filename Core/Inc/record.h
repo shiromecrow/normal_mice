@@ -9,7 +9,7 @@
 #define INC_RECORD_H_
 
 #define max_record_num 4
-#define max_record_time 10
+#define max_record_time 3000
 
 extern char record_mode;
 

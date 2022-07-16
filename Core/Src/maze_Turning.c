@@ -12,7 +12,7 @@
 
 parameter_speed speed500_exploration;
 parameter_speed speed600_shortest;
-parameter_speed speed800_shortest;
+parameter_speed speed900_shortest;
 parameter_speed speed1000_shortest;
 
 

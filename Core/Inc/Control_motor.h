@@ -42,7 +42,7 @@ extern TARGET g_TargetStraight;;
 extern TARGET g_TargetTurning;
 
 void control_test_motor(uint8_t);
-void control_test_motor2(uint8_t,uint8_t);
+void control_test_motor2(uint8_t,uint8_t,uint8_t);
 
 void motor_init();
 

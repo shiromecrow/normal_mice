@@ -55,7 +55,7 @@ void control_test_motor(uint8_t WallMode)
 	pl_motor_standby(0);
 }
 
-void control_test_motor2(uint8_t turn_mode,uint8_t WallMode)
+void control_test_motor2(uint8_t turn_mode,uint8_t WallMode,uint8_t count)
 {
 	MOTOR_MODE mode;
 //	mode.WallControlMode=0;
@@ -67,7 +67,7 @@ void control_test_motor2(uint8_t turn_mode,uint8_t WallMode)
 	pl_motor_start();
 
 if(turn_mode==0){
-	straight_table(540, 100, 100, 600, 7000, mode);
+	straight_table(180*count, 100, 100, 600, 7000, mode);
 }else if (turn_mode==1){
 	turning_table(360*5, 120, 120, 600, 7000);
 }else{

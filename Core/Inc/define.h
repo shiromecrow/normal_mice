@@ -51,6 +51,10 @@
 #define CONTROLWALLCUT_THRESHOLD_L 25//左壁制御の壁切れの閾値
 #define CONTROLWALLCUT_THRESHOLD_R 25//右壁制御の壁切れの閾値
 
+#define SENSOR_GAIN_SLANT 0.001
+#define CONTROLWALL_THRESHOLD_FRONT_L 120//斜め用壁制御
+#define CONTROLWALL_THRESHOLD_FRONT_R 120//斜め用壁制御
+
 
 // 探索に使用する値
 #define MAX_WALKCOUNT 255

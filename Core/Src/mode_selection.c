@@ -100,7 +100,7 @@ void mode_display0(int mode){
 		pl_lcd_puts("tune");
 	break;
 	case 3:
-		pl_lcd_puts("tune2");
+		pl_lcd_puts("log");
 	break;
 	case 4:
 		pl_lcd_puts("endure");
@@ -153,8 +153,8 @@ switch (now_mode1) {
 	case 2://調整
 		mode_Tuning(now_mode2);
 	break;
-	case 3://別パラメータの調整
-//		mode_Tuning2(now_mode2);
+	case 3://ログ
+		mode_Log(now_mode2);
 	break;
 	case 4://耐久テスト
 //		mode_Tuning2(now_mode2);
@@ -287,19 +287,19 @@ void mode_Running(unsigned char now_mode2){
 void mode_Tuning(unsigned char now_mode2){
 
 	pl_motor_standby(1);
-	while(read_switch1()==1 && read_switch2()==1){
+	while(read_switch1()==0 || read_switch2()==0){
 		wait_ms(1);
 		}
-
+	wait_ms(2000);
 	switch (now_mode2) {
 		case 0://タイヤ径
-			control_test_motor2(0,0);
+			control_test_motor2(0,0,10);
 		break;
 		case 1://トレッド幅
-			control_test_motor2(1,0);
+			control_test_motor2(1,0,5);
 		break;
 		case 2://壁制御
-			control_test_motor2(0,1);
+			control_test_motor2(0,1,6);
 		break;
 		case 3://右スラローム(探索)
 			testturning(speed500_exploration,0,0);
@@ -308,7 +308,65 @@ void mode_Tuning(unsigned char now_mode2){
 			testturning(speed500_exploration,1,0);
 		break;
 		case 5://右スラローム
-			control_test_motor2(2,1);
+			testturning(speed900_shortest,0,1);
+		break;
+		case 6://左スラローム
+			testturning(speed900_shortest,1,1);
+		break;
+		case 7://右壁切れ
+			testturning(speed900_shortest,2,1);
+		break;
+		case 8://左壁切れ
+			testturning(speed900_shortest,3,1);
+		break;
+		case 9://右大回り90
+			testturning(speed900_shortest,4,1);
+		break;
+		case 10://左大回り90
+			testturning(speed900_shortest,5,1);
+		break;
+		case 11://右大回り180
+		break;
+		case 12://左大回り180
+		break;
+		case 13://右斜め45
+		break;
+		case 14://左斜め45
+		break;
+		case 15://右斜め135
+		break;
+		case 16://左斜め135
+		break;
+	}
+
+}
+
+void mode_Log(unsigned char now_mode2){
+
+	pl_motor_standby(1);
+
+	switch (now_mode2) {
+		case 0://タイヤ径
+			record_mode=1;
+			control_test_motor2(0,1,5);
+			record_mode=0;
+			while(read_switch1()==0 || read_switch2()==0){
+				wait_ms(1);
+				}
+			record_print();
+		break;
+		case 1://トレッド幅
+		break;
+		case 2://壁制御
+		break;
+		case 3://右スラローム(探索)
+			testturning(speed500_exploration,0,0);
+		break;
+		case 4://左スラローム(探索)
+			testturning(speed500_exploration,1,0);
+		break;
+		case 5://右スラローム
+			control_test_motor2(2,1,0);
 		break;
 		case 6://左スラローム
 		break;

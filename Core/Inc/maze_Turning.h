@@ -43,7 +43,7 @@ parameter V90_L;
 
 extern parameter_speed speed500_exploration;
 extern parameter_speed speed600_shortest;
-extern parameter_speed speed800_shortest;
+extern parameter_speed speed900_shortest;
 extern parameter_speed speed1000_shortest;
 
 

@@ -115,8 +115,8 @@ speed500_exploration.V90_L.e_ofset=55;
 
 //*********************************600********************************************
 
-speed600_shortest.SlalomCentervelocity=500;
-speed600_shortest.TurnCentervelocity=600;
+speed600_shortest.SlalomCentervelocity=600;
+speed600_shortest.TurnCentervelocity=900;
 
 
 speed600_shortest.slalom_R.g_speed=speed600_shortest.SlalomCentervelocity;
@@ -216,107 +216,107 @@ speed600_shortest.V90_L.f_ofset=28;
 speed600_shortest.V90_L.e_ofset=55;
 
 
-//*********************************800********************************************
+//*********************************900********************************************
 
-speed600_shortest.SlalomCentervelocity=600;
-speed600_shortest.TurnCentervelocity=800;
+speed900_shortest.SlalomCentervelocity=700;
+speed900_shortest.TurnCentervelocity=900;
 
 
-speed800_shortest.slalom_R.g_speed=1000;
-speed800_shortest.slalom_R.t_speed=1000;
-speed800_shortest.slalom_R.t_acc=14000;
-speed800_shortest.slalom_R.f_ofset=0;
-speed800_shortest.slalom_R.e_ofset=15;
+speed900_shortest.slalom_R.g_speed=speed900_shortest.SlalomCentervelocity;
+speed900_shortest.slalom_R.t_speed=900;
+speed900_shortest.slalom_R.t_acc=15000;
+speed900_shortest.slalom_R.f_ofset=20;
+speed900_shortest.slalom_R.e_ofset=20;
 
-speed800_shortest.slalom_L.g_speed=1000;
-speed800_shortest.slalom_L.t_speed=1000;
-speed800_shortest.slalom_L.t_acc=14000;
-speed800_shortest.slalom_L.f_ofset=5;
-speed800_shortest.slalom_L.e_ofset=5;
+speed900_shortest.slalom_L.g_speed=speed900_shortest.SlalomCentervelocity;
+speed900_shortest.slalom_L.t_speed=900;
+speed900_shortest.slalom_L.t_acc=15000;
+speed900_shortest.slalom_L.f_ofset=20;
+speed900_shortest.slalom_L.e_ofset=20;
 
-speed800_shortest.turn90_R.g_speed=500;
-speed800_shortest.turn90_R.t_speed=650;
-speed800_shortest.turn90_R.t_acc=15000;
-speed800_shortest.turn90_R.f_ofset=55;
-speed800_shortest.turn90_R.e_ofset=40;
+speed900_shortest.turn90_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn90_R.t_speed=500;
+speed900_shortest.turn90_R.t_acc=10000;
+speed900_shortest.turn90_R.f_ofset=40;
+speed900_shortest.turn90_R.e_ofset=40;
 
-speed800_shortest.turn90_L.g_speed=500;
-speed800_shortest.turn90_L.t_speed=650;
-speed800_shortest.turn90_L.t_acc=15000;
-speed800_shortest.turn90_L.f_ofset=50;
-speed800_shortest.turn90_L.e_ofset=44;
+speed900_shortest.turn90_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn90_L.t_speed=500;
+speed900_shortest.turn90_L.t_acc=10000;
+speed900_shortest.turn90_L.f_ofset=40;
+speed900_shortest.turn90_L.e_ofset=40;
 
-speed800_shortest.turn180_R.g_speed=500;
-speed800_shortest.turn180_R.t_speed=650;
-speed800_shortest.turn180_R.t_acc=15000;
-speed800_shortest.turn180_R.f_ofset=55;
-speed800_shortest.turn180_R.e_ofset=40;
+speed900_shortest.turn180_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn180_R.t_speed=500;
+speed900_shortest.turn180_R.t_acc=10000;
+speed900_shortest.turn180_R.f_ofset=40;
+speed900_shortest.turn180_R.e_ofset=40;
 
-speed800_shortest.turn180_L.g_speed=500;
-speed800_shortest.turn180_L.t_speed=650;
-speed800_shortest.turn180_L.t_acc=15000;
-speed800_shortest.turn180_L.f_ofset=50;
-speed800_shortest.turn180_L.e_ofset=44;
+speed900_shortest.turn180_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn180_L.t_speed=500;
+speed900_shortest.turn180_L.t_acc=10000;
+speed900_shortest.turn180_L.f_ofset=40;
+speed900_shortest.turn180_L.e_ofset=40;
 
-speed800_shortest.turn45in_R.g_speed=500;
-speed800_shortest.turn45in_R.t_speed=650;
-speed800_shortest.turn45in_R.t_acc=15000;
-speed800_shortest.turn45in_R.f_ofset=55;
-speed800_shortest.turn45in_R.e_ofset=40;
+speed900_shortest.turn45in_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn45in_R.t_speed=900;
+speed900_shortest.turn45in_R.t_acc=13000;
+speed900_shortest.turn45in_R.f_ofset=25;
+speed900_shortest.turn45in_R.e_ofset=60;
 
-speed800_shortest.turn45in_L.g_speed=500;
-speed800_shortest.turn45in_L.t_speed=650;
-speed800_shortest.turn45in_L.t_acc=15000;
-speed800_shortest.turn45in_L.f_ofset=50;
-speed800_shortest.turn45in_L.e_ofset=44;
+speed900_shortest.turn45in_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn45in_L.t_speed=900;
+speed900_shortest.turn45in_L.t_acc=13000;
+speed900_shortest.turn45in_L.f_ofset=32;
+speed900_shortest.turn45in_L.e_ofset=60;
 
-speed800_shortest.turn135in_R.g_speed=500;
-speed800_shortest.turn135in_R.t_speed=650;
-speed800_shortest.turn135in_R.t_acc=15000;
-speed800_shortest.turn135in_R.f_ofset=55;
-speed800_shortest.turn135in_R.e_ofset=40;
+speed900_shortest.turn135in_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn135in_R.t_speed=900;
+speed900_shortest.turn135in_R.t_acc=12000;
+speed900_shortest.turn135in_R.f_ofset=53;
+speed900_shortest.turn135in_R.e_ofset=47;
 
-speed800_shortest.turn135in_L.g_speed=500;
-speed800_shortest.turn135in_L.t_speed=650;
-speed800_shortest.turn135in_L.t_acc=15000;
-speed800_shortest.turn135in_L.f_ofset=50;
-speed800_shortest.turn135in_L.e_ofset=44;
+speed900_shortest.turn135in_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn135in_L.t_speed=900;
+speed900_shortest.turn135in_L.t_acc=12000;
+speed900_shortest.turn135in_L.f_ofset=40;
+speed900_shortest.turn135in_L.e_ofset=55;
 
-speed800_shortest.turn45out_R.g_speed=500;
-speed800_shortest.turn45out_R.t_speed=650;
-speed800_shortest.turn45out_R.t_acc=15000;
-speed800_shortest.turn45out_R.f_ofset=55;
-speed800_shortest.turn45out_R.e_ofset=40;
+speed900_shortest.turn45out_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn45out_R.t_speed=900;
+speed900_shortest.turn45out_R.t_acc=10000;
+speed900_shortest.turn45out_R.f_ofset=45;
+speed900_shortest.turn45out_R.e_ofset=10;
 
-speed800_shortest.turn45out_L.g_speed=500;
-speed800_shortest.turn45out_L.t_speed=650;
-speed800_shortest.turn45out_L.t_acc=15000;
-speed800_shortest.turn45out_L.f_ofset=50;
-speed800_shortest.turn45out_L.e_ofset=44;
+speed900_shortest.turn45out_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn45out_L.t_speed=900;
+speed900_shortest.turn45out_L.t_acc=10000;
+speed900_shortest.turn45out_L.f_ofset=40;
+speed900_shortest.turn45out_L.e_ofset=10;
 
-speed800_shortest.turn135out_R.g_speed=500;
-speed800_shortest.turn135out_R.t_speed=650;
-speed800_shortest.turn135out_R.t_acc=15000;
-speed800_shortest.turn135out_R.f_ofset=55;
-speed800_shortest.turn135out_R.e_ofset=40;
+speed900_shortest.turn135out_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn135out_R.t_speed=1000;
+speed900_shortest.turn135out_R.t_acc=12000;
+speed900_shortest.turn135out_R.f_ofset=25;
+speed900_shortest.turn135out_R.e_ofset=90;
 
-speed800_shortest.turn135out_L.g_speed=500;
-speed800_shortest.turn135out_L.t_speed=650;
-speed800_shortest.turn135out_L.t_acc=15000;
-speed800_shortest.turn135out_L.f_ofset=50;
-speed800_shortest.turn135out_L.e_ofset=44;
+speed900_shortest.turn135out_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.turn135out_L.t_speed=1000;
+speed900_shortest.turn135out_L.t_acc=12000;
+speed900_shortest.turn135out_L.f_ofset=40;
+speed900_shortest.turn135out_L.e_ofset=95;
 
-speed800_shortest.V90_R.g_speed=500;
-speed800_shortest.V90_R.t_speed=650;
-speed800_shortest.V90_R.t_acc=15000;
-speed800_shortest.V90_R.f_ofset=55;
-speed800_shortest.V90_R.e_ofset=40;
+speed900_shortest.V90_R.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.V90_R.t_speed=1650;
+speed900_shortest.V90_R.t_acc=24500;
+speed900_shortest.V90_R.f_ofset=50;
+speed900_shortest.V90_R.e_ofset=65;
 
-speed800_shortest.V90_L.g_speed=500;
-speed800_shortest.V90_L.t_speed=650;
-speed800_shortest.V90_L.t_acc=15000;
-speed800_shortest.V90_L.f_ofset=50;
-speed800_shortest.V90_L.e_ofset=44;
+speed900_shortest.V90_L.g_speed=speed900_shortest.TurnCentervelocity;
+speed900_shortest.V90_L.t_speed=1550;
+speed900_shortest.V90_L.t_acc=22000;
+speed900_shortest.V90_L.f_ofset=28;
+speed900_shortest.V90_L.e_ofset=55;
 
 //*********************************1000********************************************
 

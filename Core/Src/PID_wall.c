@@ -101,10 +101,16 @@ float calWallConrol(void){
 		}
 
 
+	}else if (g_WallControl_mode == 2) {
+// 斜めの制御
+		if (g_sensor[SENSOR_FRONT_LEFT][0] > CONTROLWALL_THRESHOLD_FRONT_L){
+			PID_wall= SENSOR_GAIN_SLANT*((float)(g_sensor[SENSOR_FRONT_LEFT][0] - CONTROLWALL_THRESHOLD_FRONT_L));
+		}
+		if (g_sensor[SENSOR_FRONT_RIGHT][0] > CONTROLWALL_THRESHOLD_FRONT_R){
+			PID_wall= SENSOR_GAIN_SLANT*(-(float)(g_sensor[SENSOR_FRONT_RIGHT][0] - CONTROLWALL_THRESHOLD_FRONT_R));
+		}
+
 	}
-
-
-
 
 	return PID_wall;
 }

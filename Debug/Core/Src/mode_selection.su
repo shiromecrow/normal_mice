@@ -5,3 +5,4 @@
 ../Core/Src/mode_selection.c:169:6:mode_PLtest	80	static
 ../Core/Src/mode_selection.c:260:6:mode_Running	344	static
 ../Core/Src/mode_selection.c:287:6:mode_Tuning	344	static
+../Core/Src/mode_selection.c:344:6:mode_Log	344	static

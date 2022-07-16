@@ -22,6 +22,7 @@ void mode_execution(unsigned char,unsigned char);
 void mode_PLtest(unsigned char);
 void mode_Running(unsigned char);
 void mode_Tuning(unsigned char);
+void mode_Log(unsigned char);
 
 
 #endif /* INC_MODE_SELECTION_H_ */
