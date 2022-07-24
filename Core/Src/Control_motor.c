@@ -67,7 +67,11 @@ void control_test_motor2(uint8_t turn_mode,uint8_t WallMode,uint8_t count)
 	pl_motor_start();
 
 if(turn_mode==0){
-	straight_table(180*count, 100, 100, 600, 7000, mode);
+	if(WallMode==2){
+		straight_table(180*count*1.414, 100, 100, 600, 7000, mode);
+	}else{
+		straight_table(180*count, 100, 100, 600, 7000, mode);
+	}
 }else if (turn_mode==1){
 	turning_table(360*5, 120, 120, 600, 7000);
 }else{

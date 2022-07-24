@@ -1,8 +1,8 @@
 ../Core/Src/Control_motor.c:30:6:control_test_motor	24	static
 ../Core/Src/Control_motor.c:58:6:control_test_motor2	24	static
-../Core/Src/Control_motor.c:88:6:motor_init	4	static
-../Core/Src/Control_motor.c:99:6:interrupt_Motor	40	static
-../Core/Src/Control_motor.c:133:6:cal_table	32	static
-../Core/Src/Control_motor.c:274:7:straight_table	40	static
-../Core/Src/Control_motor.c:327:7:turning_table	40	static
-../Core/Src/Control_motor.c:371:7:slalom_table	40	static
+../Core/Src/Control_motor.c:92:6:motor_init	4	static
+../Core/Src/Control_motor.c:103:6:interrupt_Motor	40	static
+../Core/Src/Control_motor.c:137:6:cal_table	32	static
+../Core/Src/Control_motor.c:278:7:straight_table	40	static
+../Core/Src/Control_motor.c:331:7:turning_table	40	static
+../Core/Src/Control_motor.c:375:7:slalom_table	40	static

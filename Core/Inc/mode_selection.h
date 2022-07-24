@@ -23,6 +23,6 @@ void mode_PLtest(unsigned char);
 void mode_Running(unsigned char);
 void mode_Tuning(unsigned char);
 void mode_Log(unsigned char);
-
+void mode_Tuning_shortest(unsigned char);
 
 #endif /* INC_MODE_SELECTION_H_ */

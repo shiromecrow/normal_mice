@@ -11,7 +11,7 @@
 #include "define.h"
 
 parameter_speed speed500_exploration;
-parameter_speed speed600_shortest;
+parameter_speed speed700_shortest;
 parameter_speed speed900_shortest;
 parameter_speed speed1000_shortest;
 
@@ -42,36 +42,36 @@ void slalomR(parameter turnpara,char test_mode,char shortest_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 270, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=0;
 		if(shortest_mode==0){
 			straight_table(MAZE_OFFSET+turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		}else{
 			straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		}
 
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		straight_table(90 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=0;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
 				straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -83,36 +83,36 @@ void slalomL(parameter turnpara,char test_mode,char shortest_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 270, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=0;
 		if(shortest_mode==0){
 			straight_table(MAZE_OFFSET+turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		}else{
 			straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		}
 
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(90 + turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(90 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=0;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-				straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -126,32 +126,32 @@ void turn90R(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -163,32 +163,32 @@ void turn90L(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -201,32 +201,32 @@ void turn180R(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,180, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,180, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -238,32 +238,32 @@ void turn180L(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-180, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	} else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-180, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -277,16 +277,16 @@ void turn45inR(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,45, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
@@ -296,27 +296,27 @@ void turn45inR(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,45, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 	}
 	else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,45, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -328,16 +328,16 @@ void turn45inL(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-45, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
@@ -347,27 +347,27 @@ void turn45inL(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-45, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 	}
 	else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-45, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -381,16 +381,16 @@ void turn135inR(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,135, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
@@ -400,27 +400,27 @@ void turn135inR(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,135, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 	}
 	else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,135, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
 		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -432,16 +432,16 @@ void turn135inL(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-135, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
@@ -451,27 +451,27 @@ void turn135inL(parameter turnpara, char test_mode) {
 //		record_mode = 1;
 		test_motor_start(&wallmode);
 		straight_table(BACK_TO_CENTER + 180, 100, turnpara.g_speed, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		wallmode.WallCutMode=1;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-135, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 	}
 	else {
-		wallmode.WallControlMode=1;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=1;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-135, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -483,33 +483,33 @@ void turn45outR(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,45, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,45, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -520,33 +520,33 @@ void turn45outL(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-45, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-45, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -556,33 +556,33 @@ void turn135outR(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,135, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,135, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -593,33 +593,33 @@ void turn135outL(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-135, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-135, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 }
@@ -629,33 +629,33 @@ void V90R(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,90, 0, 0, turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 
@@ -666,33 +666,33 @@ void V90L(parameter turnpara, char test_mode) {
 	if (test_mode == 1) {
 //		highspeed_mode = 1;
 //		record_mode = 1;
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-									turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+									turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
-		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-				turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(180 * 1.4142 + turnpara.e_ofset, turnpara.g_speed, 100, turnpara.g_speed,
+				turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 //		record_mode = 0;
 		test_motor_stop();
 //      highspeed_mode = 0;
 	}else {
-		wallmode.WallControlMode=2;
+		wallmode.WallControlMode=0;
 		wallmode.WallControlStatus=0;
 		wallmode.WallCutMode=2;
 		wallmode.calMazeMode=0;
 		straight_table(turnpara.f_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
-											turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+											turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 		slalom_table(turnpara.g_speed,-90, 0, 0, -turnpara.t_speed, turnpara.t_acc);
 		wallmode.WallControlMode=0;
 		wallmode.WallCutMode=0;
-		straight_table(turnpara.e_ofset, turnpara.g_speed, 0, turnpara.g_speed,
-						turnpara.g_speed * turnpara.g_speed * 3 / 2 / 90,wallmode);
+		straight_table(turnpara.e_ofset, turnpara.g_speed, turnpara.g_speed, turnpara.g_speed,
+						turnpara.g_speed * turnpara.g_speed  / 2 / 90,wallmode);
 
 	}
 
@@ -709,16 +709,16 @@ void testturning(parameter_speed Howspeed,int turnmode,char shortest_mode){
 	if(turnmode==3){turn90L(Howspeed.turn90_L,ON);}
 	if(turnmode==4){turn180R(Howspeed.turn180_R,ON);}
 	if(turnmode==5){turn180L(Howspeed.turn180_L,ON);}
-//	if(turnmode==6){turn45inR(Howspeed.turn45in_R,ON);}
-//	if(turnmode==7){turn45inL(Howspeed.turn45in_L,ON);}
-//	if(turnmode==8){turn135inR(Howspeed.turn135in_R,ON);}
-//	if(turnmode==9){turn135inL(Howspeed.turn135in_L,ON);}
-//	if(turnmode==10){turn45inL(Howspeed.turn45in_L, CONNECT);turn45outR(Howspeed.turn45out_R,ON);}
-//	if(turnmode==11){turn45inR(Howspeed.turn45in_R, CONNECT);turn45outL(Howspeed.turn45out_L,ON);}
-//	if(turnmode==12){turn135inL(Howspeed.turn135in_L, CONNECT);turn135outR(Howspeed.turn135out_R,ON);}
-//	if(turnmode==13){turn135inR(Howspeed.turn135in_R, CONNECT);turn135outL(Howspeed.turn135out_L,ON);}
-//	if(turnmode==14){turn45inL(Howspeed.turn45in_L, CONNECT);V90R(Howspeed.V90_R,ON);}
-//	if(turnmode==15){turn45inR(Howspeed.turn45in_R, CONNECT);V90L(Howspeed.V90_L,ON);}
+	if(turnmode==6){turn45inR(Howspeed.turn45in_R,ON);}
+	if(turnmode==7){turn45inL(Howspeed.turn45in_L,ON);}
+	if(turnmode==8){turn135inR(Howspeed.turn135in_R,ON);}
+	if(turnmode==9){turn135inL(Howspeed.turn135in_L,ON);}
+	if(turnmode==10){turn45inL(Howspeed.turn45in_L, CONNECT);turn45outR(Howspeed.turn45out_R,ON);}
+	if(turnmode==11){turn45inR(Howspeed.turn45in_R, CONNECT);turn45outL(Howspeed.turn45out_L,ON);}
+	if(turnmode==12){turn135inL(Howspeed.turn135in_L, CONNECT);turn135outR(Howspeed.turn135out_R,ON);}
+	if(turnmode==13){turn135inR(Howspeed.turn135in_R, CONNECT);turn135outL(Howspeed.turn135out_L,ON);}
+	if(turnmode==14){turn45inL(Howspeed.turn45in_L, CONNECT);V90R(Howspeed.V90_R,ON);}
+	if(turnmode==15){turn45inR(Howspeed.turn45in_R, CONNECT);V90L(Howspeed.V90_L,ON);}
 
 	HAL_Delay(500);
 

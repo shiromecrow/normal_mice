@@ -45,15 +45,15 @@
 // 壁制御に使用する値
 #define SENSOR_GAIN 0.09
 #define CENTER_L 299
-#define CENTER_R 277
+#define CENTER_R 327
 #define CONTROLWALL_THRESHOLD_L 110//左壁制御の閾値
 #define CONTROLWALL_THRESHOLD_R 110//右壁制御の閾値
 #define CONTROLWALLCUT_THRESHOLD_L 25//左壁制御の壁切れの閾値
 #define CONTROLWALLCUT_THRESHOLD_R 25//右壁制御の壁切れの閾値
 
-#define SENSOR_GAIN_SLANT 0.001
-#define CONTROLWALL_THRESHOLD_FRONT_L 120//斜め用壁制御
-#define CONTROLWALL_THRESHOLD_FRONT_R 120//斜め用壁制御
+#define SENSOR_GAIN_SLANT 0.01
+#define CONTROLWALL_THRESHOLD_FRONT_L 100//斜め用壁制御
+#define CONTROLWALL_THRESHOLD_FRONT_R 150//斜め用壁制御
 
 
 // 探索に使用する値

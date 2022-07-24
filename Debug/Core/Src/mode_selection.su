@@ -1,8 +1,9 @@
 ../Core/Src/mode_selection.c:31:15:mode_decision	16	static
 ../Core/Src/mode_selection.c:89:6:mode_display0	16	static
-../Core/Src/mode_selection.c:116:6:mode_display1	40	static
-../Core/Src/mode_selection.c:131:6:mode_execution	16	static
-../Core/Src/mode_selection.c:169:6:mode_PLtest	80	static
-../Core/Src/mode_selection.c:260:6:mode_Running	344	static
-../Core/Src/mode_selection.c:287:6:mode_Tuning	344	static
-../Core/Src/mode_selection.c:344:6:mode_Log	344	static
+../Core/Src/mode_selection.c:119:6:mode_display1	40	static
+../Core/Src/mode_selection.c:134:6:mode_execution	16	static
+../Core/Src/mode_selection.c:175:6:mode_PLtest	80	static
+../Core/Src/mode_selection.c:266:6:mode_Running	344	static
+../Core/Src/mode_selection.c:293:6:mode_Tuning	344	static
+../Core/Src/mode_selection.c:356:6:mode_Log	344	static
+../Core/Src/mode_selection.c:410:6:mode_Tuning_shortest	344	static

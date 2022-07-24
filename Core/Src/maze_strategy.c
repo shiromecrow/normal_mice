@@ -191,18 +191,13 @@ void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, f
 
 			direction = direction + 2;
 
-			if (direction == 5) {
-				direction = 1;
+			if (direction >= 5) {
+				direction = direction-4;
 			}
-			if (direction == 6) {
-				direction = 2;
+			if (direction <= 0) {
+				direction = direction+4;
 			}
-			if (direction == 0) {
-				direction = 4;
-			}
-			if (direction == -1) {
-				direction = 3;
-			}
+
 			break;
 		}
 
@@ -296,18 +291,12 @@ void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, f
 
 			}
 
-		if (direction == 5) {
-			direction = 1;
-		}
-		if (direction == 6) {
-			direction = 2;
-		}
-		if (direction == 0) {
-			direction = 4;
-		}
-		if (direction == -1) {
-			direction = 3;
-		}
+			if (direction >= 5) {
+				direction = direction-4;
+			}
+			if (direction <= 0) {
+				direction = direction+4;
+			}
 
 	}
 
@@ -344,17 +333,11 @@ void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, f
 			maze_display();
 			direction = direction + 2;
 
-			if (direction == 5) {
-				direction = 1;
+			if (direction >= 5) {
+				direction = direction-4;
 			}
-			if (direction == 6) {
-				direction = 2;
-			}
-			if (direction == 0) {
-				direction = 4;
-			}
-			if (direction == -1) {
-				direction = 3;
+			if (direction <= 0) {
+				direction = direction+4;
 			}
 
 			break;
@@ -450,17 +433,11 @@ void AdatiWayReturn(float input_StraightVelocity, float input_TurningVelocity, f
 		}
 
 
-		if (direction == 5) {
-			direction = 1;
+		if (direction >= 5) {
+			direction = direction-4;
 		}
-		if (direction == 6) {
-			direction = 2;
-		}
-		if (direction == 0) {
-			direction = 4;
-		}
-		if (direction == -1) {
-			direction = 3;
+		if (direction <= 0) {
+			direction = direction+4;
 		}
 
 //だ出ツール
@@ -554,11 +531,11 @@ void ShortestWay(float input_StraightVelocity, float input_StraightAcceleration,
 		search_AroundWalkCount(&front_count,&right_count,&back_count,&left_count);
 
 		if((x == GOAL_X || x == GOAL_X+1) && (y == GOAL_Y || y == GOAL_Y+1)){
-			if (pass[pass_count] >= 0) {
-			} else {
-				pass_count++;
-			}
-			pass[pass_count] = pass[pass_count] + 1;
+//			if (pass[pass_count] >= 0) {
+//			} else {
+//				pass_count++;
+//			}
+//			pass[pass_count] = pass[pass_count] + 1;
 
 			break;
 		}
@@ -647,17 +624,11 @@ void ShortestWay(float input_StraightVelocity, float input_StraightAcceleration,
 			direction--;
 		}
 
-		if (direction == 5) {
-			direction = 1;
+		if (direction >= 5) {
+			direction = direction-4;
 		}
-		if (direction == 6) {
-			direction = 2;
-		}
-		if (direction == 0) {
-			direction = 4;
-		}
-		if (direction == -1) {
-			direction = 3;
+		if (direction <= 0) {
+			direction = direction+4;
 		}
 
 	}
@@ -906,7 +877,8 @@ wait_ms(1000);
 //		v_e=straight_table(BACK_TO_CENTER, 120,input_StraightVelocity,input_StraightVelocity,input_StraightAcceleration, mode);
 //		//straight_table(39.5, 0, howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed,howspeed.turn90_R.g_speed * howspeed.turn90_R.g_speed / 39.5);
 //	}
-	v_start=straight_table(BACK_TO_CENTER, 120,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity * input_turn.TurnCentervelocity / BACK_TO_CENTER, mode);
+	//v_start=straight_table(BACK_TO_CENTER, 200,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity,(input_turn.TurnCentervelocity * input_turn.TurnCentervelocity-200*200)/ 2 / BACK_TO_CENTER, mode);
+	v_start=straight_table(BACK_TO_CENTER, 100,input_turn.TurnCentervelocity,input_turn.TurnCentervelocity,input_StraightAcceleration, mode);
 
 	while (pass_count <= 255) {
 
@@ -984,10 +956,18 @@ wait_ms(1000);
 			}
 			if (pass[pass_count] >= 50) {
 				//wall_control_mode = 2;
+				mode.WallControlMode=2;
+				mode.WallControlStatus=0;
+				mode.WallCutMode=0;
+				mode.calMazeMode=0;
 				v_start=straight_table((90 * 1.414 * (pass[pass_count] - 50)), v_start,v_end,input_StraightVelocity,input_StraightAcceleration, mode);
 			} else {
 				//wall_control_mode = 1;
 				//straight_table((90 * pass[pass_count]), first_v, last_v,inspeed, inacc);
+				mode.WallControlMode=1;
+				mode.WallControlStatus=0;
+				mode.WallCutMode=0;
+				mode.calMazeMode=0;
 				v_start=straight_table((90 * pass[pass_count]), v_start,v_end,input_StraightVelocity,input_StraightAcceleration, mode);
 
 			}
@@ -1003,10 +983,13 @@ wait_ms(1000);
 		}
 
 	}
+	v_start=straight_table(90, v_start,100,input_StraightVelocity,input_StraightAcceleration, mode);
+	pl_motor_stop();
 	if (x == 0 && y == 0) {
 	} else {
 //		straight_table(180, (E_speedR + E_speedL) / 2, 0,(E_speedR + E_speedL) / 2, inacc);
 		HAL_Delay(700);
+		pl_motor_start();
 		turning_table(180, 0, 0, 400, 5000);
 	}
 	pl_motor_stop();

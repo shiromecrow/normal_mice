@@ -105,6 +105,9 @@ void mode_display0(int mode){
 	case 4:
 		pl_lcd_puts("endure");
 	break;
+	case 5:
+		pl_lcd_puts("short");
+	break;
 	}
 
 	pl_lcd_pos(1, 0);
@@ -158,6 +161,9 @@ switch (now_mode1) {
 	break;
 	case 4://耐久テスト
 //		mode_Tuning2(now_mode2);
+	break;
+	case 5:
+		mode_Tuning_shortest(now_mode2);
 	break;
 	case 100://エラー脱出
 		wait_ms(10);
@@ -269,7 +275,7 @@ void mode_Running(unsigned char now_mode2){
 		case 2://足立法(帰りあり)
 		break;
 		case 3://最短走行(パス圧縮なし)
-			ShortestWay(1000,10000,speed600_shortest,0);
+			ShortestWay(750,5000,speed700_shortest,0);
 		break;
 		case 4://最短走行(パス圧縮あり)
 		break;
@@ -307,8 +313,8 @@ void mode_Tuning(unsigned char now_mode2){
 		case 4://左スラローム(探索)
 			testturning(speed500_exploration,1,0);
 		break;
-		case 5://右スラローム
-			testturning(speed900_shortest,0,1);
+		case 5://斜め直進
+			control_test_motor2(0,2,4);
 		break;
 		case 6://左スラローム
 			testturning(speed900_shortest,1,1);
@@ -326,16 +332,22 @@ void mode_Tuning(unsigned char now_mode2){
 			testturning(speed900_shortest,5,1);
 		break;
 		case 11://右大回り180
+			testturning(speed900_shortest,6,1);
 		break;
 		case 12://左大回り180
+			testturning(speed900_shortest,7,1);
 		break;
 		case 13://右斜め45
+			testturning(speed900_shortest,8,1);
 		break;
 		case 14://左斜め45
+			testturning(speed900_shortest,9,1);
 		break;
 		case 15://右斜め135
+			testturning(speed900_shortest,10,1);
 		break;
 		case 16://左斜め135
+			testturning(speed900_shortest,11,1);
 		break;
 	}
 
@@ -369,6 +381,7 @@ void mode_Log(unsigned char now_mode2){
 			control_test_motor2(2,1,0);
 		break;
 		case 6://左スラローム
+
 		break;
 		case 7://右壁切れ
 		break;
@@ -391,5 +404,16 @@ void mode_Log(unsigned char now_mode2){
 		case 16://左斜め135
 		break;
 	}
+
+}
+
+void mode_Tuning_shortest(unsigned char now_mode2){
+
+	pl_motor_standby(1);
+	while(read_switch1()==0 || read_switch2()==0){
+		wait_ms(1);
+		}
+	wait_ms(2000);
+	testturning(speed700_shortest,now_mode2,SHORTEST);
 
 }
